@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieStar.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dc312de22c3d08bb8e2ffd282723ee9e89d9b4b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aef8dbb3b3c966c37eedb0e566566e7599c3e650")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieStar.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieStar.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
