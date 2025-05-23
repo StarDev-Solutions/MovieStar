@@ -3,8 +3,10 @@ import 'package:moviestar/src/authentication/domain/entities/nav_item_model.dart
 import 'package:moviestar/src/authentication/domain/entities/rive_model.dart';
 import 'package:moviestar/src/authentication/presentation/pages/home_page.dart';
 import 'package:moviestar/src/authentication/presentation/pages/widgets/animated_bar.dart';
+import 'package:moviestar/src/blog/presentation/blog_page.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:rive/rive.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
+import 'package:rive/rive.dart' as r;
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -16,7 +18,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin {
   final PageController _pageController = PageController();
   int _selectedNavIndex = 0;
-  final List<SMIBool> _riveIconInputs = [];
+  final List<r.SMIBool> _riveIconInputs = [];
 
   late AnimationController _animationController;
   late Animation<Offset> _offsetAnimation;
@@ -32,75 +34,86 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _pageController,
+      body: Stack(
         children: [
-          HomePage(),
-        ],
-      ),
-      bottomNavigationBar: SlideTransition(
-        position: _offsetAnimation,
-        child: Container(
-          height: 66,
-          padding: EdgeInsets.all(12),
-          margin: EdgeInsets.only(left: 30, right: 30, bottom: 20,),
-          decoration: BoxDecoration(
-            color: bottomNavBackgroundColor.withValues(alpha: 0.8),
-            borderRadius: BorderRadius.circular(24),
-            boxShadow: [
-              // BoxShadow(
-              //   color: bottomNavBackgroundColor..withValues(alpha: 0.20),
-              //   offset: Offset(0, 20),
-              //   blurRadius: 20,
-              // )
+          PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _pageController,
+            children: [
+              BlogPage(),
+              HomePage(),
+              HomePage(),
+              HomePage(),
             ],
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(bottomNavItems.length, (index) {
-              final RiveModel riveIcon = bottomNavItems[index].rive;
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  AnimatedBar(isActive: _selectedNavIndex == index),
-                  InkWell(
-                    borderRadius: BorderRadius.circular(10),
-                    onTap: () {
-                      _animateIcon(index);
-                      setState(() => _selectedNavIndex = index);
-                      _pageController.jumpToPage(index);
-                    },
-                    child: SizedBox(
-                      height: 36,
-                      width: 36,
-                      child: Opacity(
-                        opacity: _selectedNavIndex == index ? 1 : 0.5,
-                        child: RiveAnimation.asset(
-                          riveIcon.src,
-                          artboard: riveIcon.artboard,
-                          onInit: (artboard) => _riveOnIt(artboard, stateMachineName: riveIcon.stateMachineName),
+          Positioned(
+            bottom: 20,
+            child: SlideTransition(
+              position: _offsetAnimation,
+              child: Container(
+                height: 65.s2,
+                width: MediaQuery.sizeOf(context).width / 1.2,
+                padding: EdgeInsets.all(12),
+                margin: EdgeInsets.symmetric(horizontal: 30),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.s),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      bottomNavBackgroundColor..withValues(alpha: 0.2),
+                      bottomNavBackgroundColor.withValues(alpha: 0.8),
+                    ],
+                  )
+                ),
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(bottomNavItems.length, (index) {
+                  final RiveModel riveIcon = bottomNavItems[index].rive;
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AnimatedBar(isActive: _selectedNavIndex == index),
+                      InkWell(
+                        borderRadius: BorderRadius.circular(10),
+                        onTap: () {
+                          _animateIcon(index);
+                          setState(() => _selectedNavIndex = index);
+                          _pageController.jumpToPage(index);
+                        },
+                        child: SizedBox(
+                          height: 36,
+                          width: 36,
+                          child: Opacity(
+                            opacity: _selectedNavIndex == index ? 1 : 0.5,
+                            child: r.RiveAnimation.asset(
+                              riveIcon.src,
+                              artboard: riveIcon.artboard,
+                              onInit: (artboard) => _riveOnIt(artboard, stateMachineName: riveIcon.stateMachineName),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                ],
-              );
-            }),
+                    ],
+                  );
+                }),
+              ),
+            ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
 
-  void _riveOnIt(Artboard artboard, {required String stateMachineName}) {
-    StateMachineController? controller = StateMachineController.fromArtboard(
+  void _riveOnIt(r.Artboard artboard, {required String stateMachineName}) {
+    r.StateMachineController? controller = r.StateMachineController.fromArtboard(
       artboard,
       stateMachineName,
     );
     if (controller != null) {
       artboard.addController(controller);
-      _riveIconInputs.add(controller.findInput<bool>('active') as SMIBool);
+      _riveIconInputs.add(controller.findInput<bool>('active') as r.SMIBool);
     }
   }
   
