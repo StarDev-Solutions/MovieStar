@@ -1,6 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:moviestar/src/authentication/presentation/controllers/media_controller.dart';
+import 'package:moviestar/src/blog/data/repositories/blog_repository.dart';
+import 'package:moviestar/src/blog/presentation/controllers/blog_controller.dart';
 import 'package:moviestar/src/core/route.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:get/get.dart';
@@ -38,7 +41,10 @@ class _MainAppState extends State<MainApp> {
               getPages: Pages.pages,
               initialRoute: Routes.mainRoute,
               initialBinding: BindingsBuilder(() {
+                Get.put(Dio());
                 Get.put(MediaController());
+                Get.lazyPut(() => BlogRepository());
+                Get.lazyPut(() => BlogController());
               }),
             );
           }

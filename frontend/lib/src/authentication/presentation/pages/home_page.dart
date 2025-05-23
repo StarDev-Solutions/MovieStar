@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: 50),
+        padding: EdgeInsets.only(top: 45.s),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20.s),
                     child: FadeTransition(
                       opacity: _opacityAnimation,
                       child: Text('Trending', style: labelStyle),
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                       return Skeletonizer(
                         enabled: controller.state == NotifierState.loading,
                         child: SizedBox(
-                          height: 220,
+                          height: 220.s,
                           child: CarouselView.weighted(
                             controller: _carouselController,
                             enableSplash: false,
