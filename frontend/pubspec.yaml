@@ -1,5 +1,5 @@
 name: frontend
-description: "A new Flutter project."
+description: "Movie Star - StarDev Solutions. Uma experiência estelar para amantes do cinema."
 publish_to: 'none'
 version: 0.1.0
 
@@ -24,3 +24,17 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+    - assets/lotties/
+    - assets/rive/
+    - .env
+
+  fonts:
+  - family: Axiforma
+    fonts:
+      - asset: assets/fonts/axiforma/Axiforma-Regular.ttf
+      - asset: assets/fonts/axiforma/Axiforma-Medium.ttf
+      - asset: assets/fonts/axiforma/Axiforma-Bold.ttf

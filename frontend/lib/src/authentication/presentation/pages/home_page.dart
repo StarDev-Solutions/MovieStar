@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:frontend/src/authentication/domain/entities/movie.dart';
 import 'package:frontend/src/authentication/presentation/controllers/media_controller.dart';
@@ -10,7 +11,6 @@ import 'package:frontend/src/base/enums/notifier_state.dart';
 import 'package:frontend/src/core/route.dart';
 import 'package:frontend/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:get/get.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,111 +67,108 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => focusNode.unfocus(),
-      child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.only(top: 50),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      UIText.label('Pesquisar pelo título'),
-                      SizedBox(height: 10),
-                      SlideTransition(
-                        position: _offsetTtoB,
-                        child: MovieSearchTextField(
-                          searchFocusNode: focusNode,
-                          movies: Get.find<MediaController>().trendingMovies,
-                          selectSuggestion: selectMovie,
-                        ),
-                      ),
-                      SizedBox(height: 40),
-                      FadeTransition(
-                        opacity: _opacityAnimation,
-                        child: Text('Categorias', style: labelStyle),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Row(
-                  spacing: 10,
-                  children: [
-                    SlideTransition(
-                      position: _offsetLtoR,
-                      child: MovieCategory(),
-                    ),
-                    SlideTransition(
-                      position: _offsetRtoL,
-                      child: AnimeCategory(),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Column(
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(top: 50),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: FadeTransition(
-                        opacity: _opacityAnimation,
-                        child: Text('Trending', style: labelStyle),
+                    UIText.label('Pesquisar pelo título'),
+                    SizedBox(height: 15.s),
+                    SlideTransition(
+                      position: _offsetTtoB,
+                      child: MovieSearchTextField(
+                        searchFocusNode: focusNode,
+                        movies: Get.find<MediaController>().trendingMovies,
+                        selectSuggestion: selectMovie,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    GetBuilder<MediaController>(
-                      builder: (controller) {
-                        return Skeletonizer(
-                          enabled: controller.state == NotifierState.loading,
-                          child: SizedBox(
-                            height: 220,
-                            child: CarouselView.weighted(
-                              controller: _carouselController,
-                              enableSplash: false,
-                              onTap: (_) => Navigator.pushNamed(context, detailPage),
-                              flexWeights: [2, 3, 3, 2],
-                              itemSnapping: true,
-                              children:
-                                  controller.state == NotifierState.loading
-                                      ? List.generate(
-                                        4,
-                                        (index) => Skeleton.leaf(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: Colors.red,
-                                              borderRadius: BorderRadius.circular(14)
-                                            ),
-                                            width: 100,
-                                          ),
-                                        ),
-                                      )
-                                      : controller.trendingMovies.map((e) {
-                                        return TweenAnimationBuilder<Offset>(
-                                          duration: Duration(milliseconds: 600),
-                                          tween: Tween(begin: Offset(1, 0), end: Offset.zero),
-                                          builder: (context, value, child) {
-                                            return Transform.translate(
-                                              offset: value,
-                                              child: CustomCatalogTile(movie: e),
-                                            );
-                                          }
-                                        );
-                                      }).toList(),
-                            ),
-                          ),
-                        );
-                      },
+                    SizedBox(height: 40),
+                    FadeTransition(
+                      opacity: _opacityAnimation,
+                      child: Text('Categorias', style: labelStyle),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              SizedBox(height: 20),
+              Row(
+                spacing: 10,
+                children: [
+                  SlideTransition(
+                    position: _offsetLtoR,
+                    child: MovieCategory(),
+                  ),
+                  SlideTransition(
+                    position: _offsetRtoL,
+                    child: AnimeCategory(),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: FadeTransition(
+                      opacity: _opacityAnimation,
+                      child: Text('Trending', style: labelStyle),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  GetBuilder<MediaController>(
+                    builder: (controller) {
+                      return Skeletonizer(
+                        enabled: controller.state == NotifierState.loading,
+                        child: SizedBox(
+                          height: 220,
+                          child: CarouselView.weighted(
+                            controller: _carouselController,
+                            enableSplash: false,
+                            onTap: (_) => Navigator.pushNamed(context, detailPage),
+                            flexWeights: [2, 3, 3, 2],
+                            itemSnapping: true,
+                            children:
+                                controller.state == NotifierState.loading
+                                    ? List.generate(
+                                      4,
+                                      (index) => Skeleton.leaf(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.red,
+                                            borderRadius: BorderRadius.circular(14)
+                                          ),
+                                          width: 100,
+                                        ),
+                                      ),
+                                    )
+                                    : controller.trendingMovies.map((e) {
+                                      return TweenAnimationBuilder<Offset>(
+                                        duration: Duration(milliseconds: 600),
+                                        tween: Tween(begin: Offset(1, 0), end: Offset.zero),
+                                        builder: (context, value, child) {
+                                          return Transform.translate(
+                                            offset: value,
+                                            child: CustomCatalogTile(movie: e),
+                                          );
+                                        }
+                                      );
+                                    }).toList(),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

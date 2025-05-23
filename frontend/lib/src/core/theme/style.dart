@@ -17,6 +17,7 @@ class Style {
         onPrimary: colorLabelOnPrimary,
         secondary: colorSecondary,
         surface: colorBackground,
+        background: colorBackground,
       ),
     );
   }
