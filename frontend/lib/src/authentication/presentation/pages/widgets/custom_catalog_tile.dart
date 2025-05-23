@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/authentication/domain/entities/movie.dart';
-import 'package:frontend/src/core/theme/ui_helpers/ui_helper.dart';
+import 'package:moviestar/src/authentication/domain/entities/movie.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:intl/intl.dart';
 
 class CustomCatalogTile extends StatelessWidget {

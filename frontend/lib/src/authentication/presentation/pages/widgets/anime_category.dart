@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/core/theme/ui_helpers/ui_helper.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
 class AnimeCategory extends StatelessWidget {
   const AnimeCategory({super.key});

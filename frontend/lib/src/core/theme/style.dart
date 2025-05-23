@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:frontend/src/core/theme/colors.dart';
+import 'package:moviestar/src/core/theme/colors.dart';
 
 class Style {
   static SystemUiOverlayStyle get systemUiOverlay => const SystemUiOverlayStyle(
@@ -17,7 +17,6 @@ class Style {
         onPrimary: colorLabelOnPrimary,
         secondary: colorSecondary,
         surface: colorBackground,
-        background: colorBackground,
       ),
     );
   }

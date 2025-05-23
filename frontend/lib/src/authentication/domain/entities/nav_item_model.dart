@@ -1,4 +1,4 @@
-import 'package:frontend/src/authentication/domain/entities/rive_model.dart';
+import 'package:moviestar/src/authentication/domain/entities/rive_model.dart';
 
 class NavItem {
   final String title;

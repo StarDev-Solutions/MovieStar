@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/core/theme/colors.dart';
+import 'package:moviestar/src/core/theme/colors.dart';
 
 class CustomPrimaryButton extends StatelessWidget {
   final String text;

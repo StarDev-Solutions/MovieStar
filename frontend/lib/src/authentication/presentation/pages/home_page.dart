@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/core/theme/ui_helpers/ui_responsivity.dart';
+import 'package:moviestar/src/core/route.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:frontend/src/authentication/domain/entities/movie.dart';
-import 'package:frontend/src/authentication/presentation/controllers/media_controller.dart';
-import 'package:frontend/src/authentication/presentation/pages/widgets/anime_category.dart';
-import 'package:frontend/src/authentication/presentation/pages/widgets/custom_catalog_tile.dart';
-import 'package:frontend/src/authentication/presentation/pages/widgets/movie_category.dart';
-import 'package:frontend/src/authentication/presentation/pages/widgets/movie_search_textfield.dart';
-import 'package:frontend/src/base/enums/notifier_state.dart';
-import 'package:frontend/src/core/route.dart';
-import 'package:frontend/src/core/theme/ui_helpers/ui_helper.dart';
+import 'package:moviestar/src/authentication/domain/entities/movie.dart';
+import 'package:moviestar/src/authentication/presentation/controllers/media_controller.dart';
+import 'package:moviestar/src/authentication/presentation/pages/widgets/anime_category.dart';
+import 'package:moviestar/src/authentication/presentation/pages/widgets/custom_catalog_tile.dart';
+import 'package:moviestar/src/authentication/presentation/pages/widgets/movie_category.dart';
+import 'package:moviestar/src/authentication/presentation/pages/widgets/movie_search_textfield.dart';
+import 'package:moviestar/src/base/enums/notifier_state.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,6 +27,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   late Animation<Offset> _offsetTtoB;
   late Animation<Offset> _offsetLtoR;
   late Animation<Offset> _offsetRtoL;
+
+  final MediaController _mediaController = Get.find<MediaController>();
 
   @override
   void initState() {
@@ -53,7 +55,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     _animationController.forward();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // await Get.find<MediaController>().getTrendingMovies();
+      // await _mediaController.getTrendingMovies();
     });
 
     super.initState();
@@ -132,7 +134,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                           child: CarouselView.weighted(
                             controller: _carouselController,
                             enableSplash: false,
-                            onTap: (_) => Navigator.pushNamed(context, detailPage),
+                            onTap: (_) => Get.toNamed(Routes.detailRoute),
                             flexWeights: [2, 3, 3, 2],
                             itemSnapping: true,
                             children:
@@ -175,7 +177,5 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
   }
 
-  void selectMovie(Movie movie) {
-    Get.find<MediaController>().selectMovie(movie);
-  }
+  void selectMovie(Movie movie) => _mediaController.selectMovie(movie);
 }

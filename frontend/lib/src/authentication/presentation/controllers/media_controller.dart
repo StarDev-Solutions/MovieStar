@@ -1,5 +1,5 @@
-import 'package:frontend/src/authentication/domain/entities/movie.dart';
-import 'package:frontend/src/base/enums/notifier_state.dart';
+import 'package:moviestar/src/authentication/domain/entities/movie.dart';
+import 'package:moviestar/src/base/enums/notifier_state.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class MediaController extends GetxController {

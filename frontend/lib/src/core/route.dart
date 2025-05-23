@@ -1,24 +1,27 @@
-import 'package:flutter/material.dart';
-import 'package:frontend/src/authentication/presentation/pages/detail_page.dart';
-import 'package:frontend/src/authentication/presentation/pages/home_page.dart';
-import 'package:frontend/src/authentication/presentation/pages/main_page.dart';
+import 'package:get/get.dart';
+import 'package:moviestar/src/authentication/presentation/pages/detail_page.dart';
+import 'package:moviestar/src/authentication/presentation/pages/home_page.dart';
+import 'package:moviestar/src/authentication/presentation/pages/main_page.dart';
 
-const String mainPage = '/mainPage';
-const String homePage = '/homePage';
-const String detailPage = '/detailPage';
+abstract class Pages {
+  static final pages = <GetPage>[
+    GetPage(
+      name: Routes.mainRoute,
+      page: () => const MainPage(),
+    ),
+    GetPage(
+      name: Routes.homeRoute,
+      page: () => const HomePage(),
+    ),
+    GetPage(
+      name: Routes.detailRoute,
+      page: () => const DetailPage(),
+    ),
+  ];
+}
 
-class CustomRouter {
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
-  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case mainPage:
-        return MaterialPageRoute(settings: settings, builder: (context) => MainPage());
-      case homePage:
-        return MaterialPageRoute(settings: settings, builder: (context) => HomePage());
-      case detailPage:
-        return MaterialPageRoute(settings: settings, builder: (context) => DetailPage());
-    }
-    return null;
-  }
+abstract class Routes {
+  static const String mainRoute = '/main';
+  static const String homeRoute = '/home';
+  static const String detailRoute = '/detail';
 }

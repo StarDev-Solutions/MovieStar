@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/authentication/domain/entities/movie.dart';
+import 'package:moviestar/src/authentication/domain/entities/movie.dart';
 
 class CustomGenreCard extends StatelessWidget {
   final Movie movieModel;

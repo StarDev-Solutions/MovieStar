@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/authentication/domain/entities/nav_item_model.dart';
-import 'package:frontend/src/authentication/domain/entities/rive_model.dart';
-import 'package:frontend/src/authentication/presentation/pages/home_page.dart';
-import 'package:frontend/src/authentication/presentation/pages/widgets/animated_bar.dart';
-import 'package:frontend/src/core/theme/ui_helpers/ui_helper.dart';
+import 'package:moviestar/src/authentication/domain/entities/nav_item_model.dart';
+import 'package:moviestar/src/authentication/domain/entities/rive_model.dart';
+import 'package:moviestar/src/authentication/presentation/pages/home_page.dart';
+import 'package:moviestar/src/authentication/presentation/pages/widgets/animated_bar.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:rive/rive.dart';
 
 class MainPage extends StatefulWidget {
