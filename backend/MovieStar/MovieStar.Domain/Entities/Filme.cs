@@ -8,21 +8,22 @@ namespace MovieStar.Domain.Entities
         #region Propriedades
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
-        public List<string> Genero { get; private set; }
+        public List<Genero> Genero { get; private set; }
         public List<Personagem> Elenco{ get; private set; }
         public int Duracao { get; private set; }
-        public string Imagem { get; private set; }
-        public string Classificacao { get; private set; }
+        public byte[] Imagem { get; private set; }
         public string Origem { get; private set; }
         public DateTime DataLancamento { get; private set; }
         public int FaixaEtaria { get; private set; }
-        public List<Avaliacao>? Avaliacao { get; private set; }
+        public List<AvaliacaoFilme>? Avaliacoes { get; private set; } = new();
         #endregion
 
         #region Construtor
-        public Filme(string nome, string descricao, List<string> genero, List<Personagem> elenco, 
-            int duracao, string imagem, string classificacao, string origem, 
-            DateTime dataLancamento,int faixaEtaria, List<Avaliacao>? avaliacao) : base(Guid.NewGuid())
+        private Filme() : base(Guid.NewGuid()) { }
+
+        public Filme(string nome, string descricao, List<Genero> genero, List<Personagem> elenco, 
+            int duracao, byte[] imagem, string origem, 
+            DateTime dataLancamento,int faixaEtaria, List<AvaliacaoFilme>? avaliacao) : base(Guid.NewGuid())
         {
             Nome = nome;
             Descricao = descricao;
@@ -30,16 +31,62 @@ namespace MovieStar.Domain.Entities
             Elenco = elenco;
             Duracao = duracao;
             Imagem = imagem;
-            Classificacao = classificacao;
             Origem = origem;
             DataLancamento = dataLancamento;
             FaixaEtaria = faixaEtaria;
-            Avaliacao = avaliacao;
+            Avaliacoes = avaliacao;
         }
         #endregion
 
         #region Métodos
-        //Adicionar métodos para manipulas as propriedades
+        public void AtualizarNome(string nome)
+        {
+            Nome = nome;
+        }
+        public void AtualizarDescricao(string descricao)
+        {
+            Descricao = descricao;
+        }
+        public void AtualizarGenero(List<Genero> genero)
+        {
+            Genero = genero;
+        }
+        public void AdicionarElenco(Personagem personagem)
+        {
+            Elenco.Add(personagem);
+        }
+        public void RemoverElenco(Personagem personagem)
+        {
+            Elenco.Remove(personagem);
+        }
+        public void AtualizarDuracao(int duracao)
+        {
+            Duracao = duracao;
+        }
+        public void AtualizarImagem(byte[] imagem)
+        {
+            Imagem = imagem;
+        }
+        public void AtualizarOrigem(string origem)
+        {
+            Origem = origem;
+        }
+        public void AtualizarDataLancamento(DateTime dataLancamento)
+        {
+            DataLancamento = dataLancamento;
+        }
+        public void AtualizarFaixaEtaria(int faixaEtaria)
+        {
+            FaixaEtaria = faixaEtaria;
+        }
+        public void AdicionarAvaliacao(AvaliacaoFilme avaliacao)
+        {
+            Avaliacoes?.Add(avaliacao);
+        }
+        public void RemoverAvaliacao(AvaliacaoFilme avaliacao)
+        {
+            Avaliacoes?.Remove(avaliacao);
+        }
         #endregion
     }
 }

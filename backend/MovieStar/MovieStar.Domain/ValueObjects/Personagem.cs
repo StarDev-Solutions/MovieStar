@@ -1,23 +1,33 @@
-﻿namespace MovieStar.Domain.ValueObjects
+﻿using MovieStar.Domain.Shared.ValueObjects;
+
+namespace MovieStar.Domain.ValueObjects
 {
-    public sealed class Personagem
+    public sealed class Personagem : ValueObject<Personagem>
     {
-        #region Propriedades
         public string NomePersonagem { get; private set; }
         public string NomeAtor { get; private set; }
         public string Imagem { get; private set; }
-        #endregion
-        
-        #region Construtores
+
         public Personagem(string nomePersonagem, string nomeAtor, string imagem)
         {
-            NomePersonagem = nomePersonagem;
-            NomeAtor = nomeAtor;
-            Imagem = imagem;
+            NomePersonagem = nomePersonagem ?? throw new ArgumentNullException(nameof(nomePersonagem));
+            NomeAtor = nomeAtor ?? throw new ArgumentNullException(nameof(nomeAtor));
+            Imagem = imagem ?? string.Empty;
         }
-        #endregion
 
-        #region Métodos
-        #endregion
+        public void AlterarNomePersonagem(string nomePersonagem)
+        {
+            NomePersonagem = nomePersonagem ?? throw new ArgumentNullException(nameof(nomePersonagem));
+        }
+
+        public void AlterarNomeAtor(string nomeAtor)
+        {
+            NomeAtor = nomeAtor ?? throw new ArgumentNullException(nameof(nomeAtor));
+        }
+
+        public void AlterarImagem(string imagem)
+        {
+            Imagem = imagem ?? string.Empty;
+        }
     }
 }

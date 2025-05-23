@@ -10,18 +10,20 @@ namespace MovieStar.Domain.Entities
         public string Descricao { get; private set; }
         public List<string> Genero { get; private set; }
         public List<Personagem> Elenco { get; private set; }
-        public string Imagem { get; private set; }
+        public byte[] Imagem { get; private set; }
         public string Classificacao { get; private set; }
         public string Origem { get; private set; }
         public int FaixaEtaria { get; private set; }
-        public List<Avaliacao>? Avaliacao { get; private set; }
+        public List<AvaliacaoSerie>? Avaliacoes { get; private set; } = new();
         public List<Temporada> Temporada { get; private set; }
         #endregion
 
         #region Construtor
+        private Serie() : base(Guid.NewGuid()) { }
+
         public Serie(string nome, string descricao, List<string> genero, List<Personagem> elenco,
-            int faixaEtaria, string imagem, string classificacao, string origem,
-             List<Avaliacao>? avaliacao, List<Temporada> temporada) : base(Guid.NewGuid())
+            int faixaEtaria, byte[] imagem, string classificacao, string origem,
+             List<AvaliacaoSerie>? avaliacao, List<Temporada> temporada) : base(Guid.NewGuid())
         {
             Nome = nome;
             Descricao = descricao;
@@ -31,13 +33,60 @@ namespace MovieStar.Domain.Entities
             Imagem = imagem;
             Classificacao = classificacao;
             Origem = origem;
-            Avaliacao = avaliacao;
+            Avaliacoes = avaliacao;
             Temporada = temporada;
         }
         #endregion
 
         #region Métodos
-        //Adicionar métodos para manipulas as propriedades
+        public void AtualizarNome(string nome)
+        {
+            Nome = nome;
+        }
+        public void AtualizarDescricao(string descricao)
+        {
+            Descricao = descricao;
+        }
+        public void AtualizarGenero(List<string> genero)
+        {
+            Genero = genero;
+        }
+        public void AtualizarElenco(List<Personagem> elenco)
+        {
+            Elenco = elenco;
+        }
+        public void AtualizarImagem(byte[] imagem)
+        {
+            Imagem = imagem;
+        }
+        public void AtualizarClassificacao(string classificacao)
+        {
+            Classificacao = classificacao;
+        }
+        public void AtualizarOrigem(string origem)
+        {
+            Origem = origem;
+        }
+        public void AtualizarFaixaEtaria(int faixaEtaria)
+        {
+            FaixaEtaria = faixaEtaria;
+        }
+        public void AdicionarAvaliacao(AvaliacaoSerie avaliacao)
+        {
+            Avaliacoes?.Add(avaliacao);
+        }
+        public void RemoverAvaliacao(AvaliacaoSerie avaliacao)
+        {
+            Avaliacoes?.Remove(avaliacao);
+        }
+        public void AdicionarTemporada(Temporada temporada)
+        {
+            Temporada.Add(temporada);
+        }
+        public void RemoverTemporada(Temporada temporada)
+        {
+            Temporada.Remove(temporada);
+        }
         #endregion
     }
 

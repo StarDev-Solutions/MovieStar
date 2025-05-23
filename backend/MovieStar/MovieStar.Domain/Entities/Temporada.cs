@@ -12,6 +12,8 @@ namespace MovieStar.Domain.Entities
         #endregion
 
         #region Construtor
+        private Temporada() : base(Guid.NewGuid()) { }
+
         public Temporada(int numero, DateTime dataLancamento, List<Episodio> episodio) : base(Guid.NewGuid())
         {
             Numero = numero;
@@ -21,7 +23,10 @@ namespace MovieStar.Domain.Entities
         #endregion
 
         #region Métodos
-        //Adicionar métodos para manipulas as propriedades
+        public void AdicionarEpisodio(Episodio episodio)
+        {
+            Episodio.Add(episodio);
+        }
         #endregion
     }
 }

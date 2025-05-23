@@ -1,28 +1,42 @@
-﻿namespace MovieStar.Domain.ValueObjects
+﻿using MovieStar.Domain.Shared.ValueObjects;
+
+namespace MovieStar.Domain.ValueObjects
 {
-    public sealed class Episodio
+    public sealed class Episodio : ValueObject<Episodio>
     {
-        #region Propriedades
         public int Numero { get; private set; }
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
         public int Duracao { get; private set; }
-        public string Imagem { get; private set; }
-        #endregion
+        public byte[] Imagem { get; private set; }
 
-        #region Construtor
-        public Episodio(int numero, string nome, string descricao, int duracao, string imagem)
+        public Episodio(int numero, string nome, string descricao, int duracao, byte[] imagem)
         {
             Numero = numero;
-            Nome = nome;
-            Descricao = descricao;
+            Nome = nome ?? throw new ArgumentNullException(nameof(nome));
+            Descricao = descricao ?? string.Empty;
             Duracao = duracao;
-            Imagem = imagem;
+            Imagem = imagem ?? Array.Empty<byte>();
         }
-        #endregion
 
-        #region Métodos
-        //Adicionar métodos para manipulas as propriedades
-        #endregion
+        public void AlterarNome(string nome)
+        {
+            Nome = nome ?? throw new ArgumentNullException(nameof(nome));
+        }
+
+        public void AlterarDescricao(string descricao)
+        {
+            Descricao = descricao ?? string.Empty;
+        }
+
+        public void AlterarDuracao(int duracao)
+        {
+            Duracao = duracao;
+        }
+
+        public void AlterarImagem(byte[] imagem)
+        {
+            Imagem = imagem ?? Array.Empty<byte>();
+        }
     }
 }

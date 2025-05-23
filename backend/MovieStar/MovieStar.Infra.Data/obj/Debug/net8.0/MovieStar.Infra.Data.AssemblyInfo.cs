@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieStar.Infra.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dc312de22c3d08bb8e2ffd282723ee9e89d9b4b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb780e8ff64b3a61438802932d89f931b968a36c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieStar.Infra.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieStar.Infra.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
