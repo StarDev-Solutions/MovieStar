@@ -1,0 +1,12 @@
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\bin\Debug\net8.0\MovieStar.Infra.Ioc.deps.json
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\bin\Debug\net8.0\MovieStar.Infra.Ioc.dll
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\bin\Debug\net8.0\MovieStar.Infra.Ioc.pdb
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\MovieStar.Infra.Ioc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\MovieStar.Infra.Ioc.AssemblyInfoInputs.cache
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\MovieStar.Infra.Ioc.AssemblyInfo.cs
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\MovieStar.Infra.Ioc.csproj.CoreCompileInputs.cache
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\MovieStar.Infra.Ioc.sourcelink.json
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\MovieStar.Infra.Ioc.dll
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\refint\MovieStar.Infra.Ioc.dll
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\MovieStar.Infra.Ioc.pdb
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Ioc\obj\Debug\net8.0\ref\MovieStar.Infra.Ioc.dll

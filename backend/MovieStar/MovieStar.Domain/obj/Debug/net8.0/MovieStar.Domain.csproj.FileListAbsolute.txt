@@ -1,0 +1,12 @@
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\bin\Debug\net8.0\MovieStar.Domain.deps.json
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\bin\Debug\net8.0\MovieStar.Domain.dll
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\bin\Debug\net8.0\MovieStar.Domain.pdb
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\MovieStar.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\MovieStar.Domain.AssemblyInfoInputs.cache
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\MovieStar.Domain.AssemblyInfo.cs
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\MovieStar.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\MovieStar.Domain.sourcelink.json
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\MovieStar.Domain.dll
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\refint\MovieStar.Domain.dll
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\MovieStar.Domain.pdb
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Domain\obj\Debug\net8.0\ref\MovieStar.Domain.dll

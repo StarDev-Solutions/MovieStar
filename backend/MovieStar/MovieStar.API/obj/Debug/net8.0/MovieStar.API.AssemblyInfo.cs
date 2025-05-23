@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieStar.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb780e8ff64b3a61438802932d89f931b968a36c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7afd79cb0b9b45cfc0009a6278d9453efe3d4892")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieStar.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieStar.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
