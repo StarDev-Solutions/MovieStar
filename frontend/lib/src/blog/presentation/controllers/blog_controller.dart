@@ -1,34 +1,37 @@
-import 'package:moviestar/src/base/enums/notifier_state.dart';
+import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 import 'package:moviestar/src/blog/data/repositories/blog_repository.dart';
 import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:get/get.dart';
 
 class BlogController extends GetxController {
-  Rx<NotifierState> _state = Rx(NotifierState.initial);
+  final BlogRepository repositorio = Get.find<BlogRepository>();
+
+  final Rx<NotifierState> _state = Rx(NotifierState.initial);
   NotifierState get state => _state.value;
 
-  RxList<BlogPost> _blogPosts = RxList([]);
-  List<BlogPost> get blogPosts => _blogPosts;
+  final RxList<Artigo> _artigos = RxList([]);
+  List<Artigo> get artigos => _artigos;
 
-  BlogPost? _selectedBlogPost;
-  BlogPost? get selectedBlogPost => _selectedBlogPost;
+  Artigo? _artigoSelecionado;
+  Artigo? get artigoSelecionado => _artigoSelecionado;
 
-  Future<String> getBlogPosts({required int pageNumber}) async {
-    String? errorMessage;
+  Future<String> buscarArtigos({required int numeroPagina}) async {
+    String? mensagemErro;
     _state.value = NotifierState.loading;
 
-    final result = await Get.find<BlogRepository>().getBlogPosts(pageNumber: pageNumber);
+    final result = await repositorio.buscarArtigos(numeroPagina: numeroPagina);
+
     result.fold((left) {
       _state.value = NotifierState.failure;
-      errorMessage = left.message;
+      mensagemErro = left.message;
     }, (right) {
-        _blogPosts.value = right;
         _state.value = NotifierState.loaded;
+        _artigos.value = right;
       },
     );
     
-    return errorMessage ?? '';
+    return mensagemErro ?? '';
   }
   
-  void selectBlogPost(BlogPost blogPost) => _selectedBlogPost = blogPost;
+  void selecionarArtigo(Artigo artigo) => _artigoSelecionado = artigo;
 }

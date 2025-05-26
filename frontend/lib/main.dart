@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:moviestar/src/authentication/presentation/controllers/media_controller.dart';
+import 'package:moviestar/src/autenticacao/presentation/controllers/autenticacao_controller.dart';
+import 'package:moviestar/src/midia/presentation/controllers/midia_controller.dart';
 import 'package:moviestar/src/blog/data/repositories/blog_repository.dart';
 import 'package:moviestar/src/blog/presentation/controllers/blog_controller.dart';
 import 'package:moviestar/src/core/route.dart';
@@ -35,14 +36,15 @@ class _MainAppState extends State<MainApp> {
             if (snapshot.connectionState == ConnectionState.done) FlutterNativeSplash.remove();
 
             return GetMaterialApp(
-              title: 'Movies Star',
+              title: 'Movie Star',
               debugShowCheckedModeBanner: false,
               theme: Style.material3Theme,
               getPages: Pages.pages,
-              initialRoute: Routes.mainRoute,
+              initialRoute: Routes.checarRoute,
               initialBinding: BindingsBuilder(() {
                 Get.put(Dio());
-                Get.put(MediaController());
+                Get.put(AutenticacaoController());
+                Get.lazyPut(() => MidiaController());
                 Get.lazyPut(() => BlogRepository());
                 Get.lazyPut(() => BlogController());
               }),
@@ -57,6 +59,8 @@ class _MainAppState extends State<MainApp> {
   Future<void> _precacheImages(BuildContext context) async {
     await Future.wait([
       precacheImage(const AssetImage('assets/images/placeholder_image.png'), context),
+      precacheImage(const AssetImage('assets/images/spider_man.png'), context),
+      precacheImage(const AssetImage('assets/images/midoria.png'), context),
     ]);
   }
 }

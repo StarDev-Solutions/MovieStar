@@ -1,27 +1,45 @@
 import 'package:get/get.dart';
-import 'package:moviestar/src/authentication/presentation/pages/detail_page.dart';
-import 'package:moviestar/src/authentication/presentation/pages/home_page.dart';
-import 'package:moviestar/src/authentication/presentation/pages/main_page.dart';
+import 'package:moviestar/src/autenticacao/presentation/pages/autenticacao_page.dart';
+import 'package:moviestar/src/autenticacao/presentation/pages/cadastro_page.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/checar_autenticacao.dart';
+import 'package:moviestar/src/midia/presentation/pages/detalhe_page.dart';
+import 'package:moviestar/src/midia/presentation/pages/principal_page.dart';
+import 'package:moviestar/src/base/presentation/pages/base_page.dart';
 
 abstract class Pages {
   static final pages = <GetPage>[
     GetPage(
-      name: Routes.mainRoute,
-      page: () => const MainPage(),
+      name: Routes.checarRoute,
+      page: () => const ChecarAutenticacao(),
     ),
     GetPage(
-      name: Routes.homeRoute,
-      page: () => const HomePage(),
+      name: Routes.autenticacaoRoute,
+      page: () => const AutenticacaoPage(),
     ),
     GetPage(
-      name: Routes.detailRoute,
-      page: () => const DetailPage(),
+      name: Routes.cadastroRoute,
+      page: () => const CadastroPage(),
+    ),
+    GetPage(
+      name: Routes.baseRoute,
+      page: () => const BasePage(),
+    ),
+    GetPage(
+      name: Routes.principalRoute,
+      page: () => const PrincipalPage(),
+    ),
+    GetPage(
+      name: Routes.detalheRoute,
+      page: () => const DetalhePage(),
     ),
   ];
 }
 
 abstract class Routes {
-  static const String mainRoute = '/main';
-  static const String homeRoute = '/home';
-  static const String detailRoute = '/detail';
+  static const String checarRoute = '/checar';
+  static const String autenticacaoRoute = '/autenticacao';
+  static const String cadastroRoute = '/cadastro';
+  static const String baseRoute = '/base';
+  static const String principalRoute = '/principal';
+  static const String detalheRoute = '/detalhe';
 }

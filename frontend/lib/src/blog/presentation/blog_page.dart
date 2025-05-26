@@ -5,7 +5,7 @@ import 'package:moviestar/src/blog/presentation/widgets/box_post_card.dart';
 import 'package:moviestar/src/blog/presentation/widgets/post_search_textfield.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:moviestar/src/base/enums/notifier_state.dart';
+import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:get/get.dart';
 
@@ -42,7 +42,7 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
     _animationController.forward();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await _blogController.getBlogPosts(pageNumber: 1);
+      await _blogController.buscarArtigos(numeroPagina: 1);
     });
 
     super.initState();
@@ -77,9 +77,9 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
                     child: ListView.separated(
                       padding: isMobile ? EdgeInsets.only(bottom: 100) : null,
                       separatorBuilder: (_, _) => SizedBox(height: 20),
-                      itemCount: _blogController.blogPosts.length,
+                      itemCount: _blogController.artigos.length,
                       itemBuilder: (_, index) {
-                        return BoxCardPost(post: _blogController.blogPosts[index]);
+                        return BoxCardPost(post: _blogController.artigos[index]);
                       },
                     ),
                   ),
@@ -92,5 +92,5 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
     );
   }
 
-  void selectPost(BlogPost blogPost) => _blogController.selectBlogPost(blogPost);
+  void selectPost(Artigo blogPost) => _blogController.selecionarArtigo(blogPost);
 }
