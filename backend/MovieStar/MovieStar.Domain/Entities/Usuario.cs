@@ -7,7 +7,8 @@ namespace MovieStar.Domain.Entities
         public string Nome { get; private set; }
         public string Email { get; private set; }
         public string Senha { get; private set; }
-        public List<AvaliacaoFilme>? Avaliacao { get; private set; }
+        public List<AvaliacaoFilme>? AvaliacoesFilme { get; private set; }
+        public List<AvaliacaoSerie>? AvaliacoesSerie { get; private set; }
         public bool Assinante{ get; private set; }
         public string Role { get; private set; }
         public byte[]? Imagem { get; private set; }
@@ -15,12 +16,13 @@ namespace MovieStar.Domain.Entities
         private Usuario() : base(Guid.NewGuid()) { }
 
         public Usuario(string nome, string email, string senha, 
-            List<AvaliacaoFilme>? avaliacao, bool assinante, string role, byte[]? imagem) : base(Guid.NewGuid())
+            List<AvaliacaoFilme>? avaliacaoFilme, List<AvaliacaoSerie>? avaliacaoSeries,bool assinante, string role, byte[]? imagem) : base(Guid.NewGuid())
         {
             Nome = nome;
             Email = email;
             Senha = senha;
-            Avaliacao = avaliacao;
+            AvaliacoesFilme = avaliacaoFilme ?? new List<AvaliacaoFilme>();
+            AvaliacoesSerie = avaliacaoSeries ?? new List<AvaliacaoSerie>();
             Assinante = assinante;
             Role = role;
             Imagem = imagem;
@@ -49,15 +51,6 @@ namespace MovieStar.Domain.Entities
         public void AlterarImagem(byte[] imagem)
         {
             Imagem = imagem;
-        }
-        public void AdicionarAvaliacao(AvaliacaoFilme avaliacao)
-        {
-            Avaliacao ??= new List<AvaliacaoFilme>();
-            Avaliacao.Add(avaliacao);
-        }
-        public void RemoverAvaliacao(AvaliacaoFilme avaliacao)
-        {
-            Avaliacao?.Remove(avaliacao);
         }
     }
 }

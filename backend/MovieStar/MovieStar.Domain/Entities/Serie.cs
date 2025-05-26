@@ -1,5 +1,4 @@
 ﻿using MovieStar.Domain.Shared.Entities;
-using MovieStar.Domain.ValueObjects;
 
 namespace MovieStar.Domain.Entities
 {
@@ -8,7 +7,7 @@ namespace MovieStar.Domain.Entities
         #region Propriedades
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
-        public List<string> Genero { get; private set; }
+        public List<Genero> Genero { get; private set; }
         public List<Personagem> Elenco { get; private set; }
         public byte[] Imagem { get; private set; }
         public string Classificacao { get; private set; }
@@ -21,7 +20,7 @@ namespace MovieStar.Domain.Entities
         #region Construtor
         private Serie() : base(Guid.NewGuid()) { }
 
-        public Serie(string nome, string descricao, List<string> genero, List<Personagem> elenco,
+        public Serie(string nome, string descricao, List<Genero> genero, List<Personagem> elenco,
             int faixaEtaria, byte[] imagem, string classificacao, string origem,
              List<AvaliacaoSerie>? avaliacao, List<Temporada> temporada) : base(Guid.NewGuid())
         {
@@ -47,7 +46,7 @@ namespace MovieStar.Domain.Entities
         {
             Descricao = descricao;
         }
-        public void AtualizarGenero(List<string> genero)
+        public void AtualizarGenero(List<Genero> genero)
         {
             Genero = genero;
         }

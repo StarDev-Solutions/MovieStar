@@ -92,7 +92,7 @@ C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debu
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\MovieStar.Tests.AssemblyInfo.cs
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\MovieStar.Tests.csproj.CoreCompileInputs.cache
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\MovieStar.Tests.sourcelink.json
-C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\MovieStar.Tests.csproj.CopyComplete
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\MovieSta.B970EB77.Up2Date
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\MovieStar.Tests.dll
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\refint\MovieStar.Tests.dll
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Tests\obj\Debug\net8.0\MovieStar.Tests.pdb

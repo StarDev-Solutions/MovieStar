@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "JGiv4XVJ4yPWtj9JdyCZrOGtELivz9J23bflbEu3dHw=",
+  "Hash": "1FElpeZTDkYq59DjDl4CVX4OtW2Duo7uIv2wml+WtLk=",
   "Source": "MovieStar.API",
   "BasePath": "_content/MovieStar.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

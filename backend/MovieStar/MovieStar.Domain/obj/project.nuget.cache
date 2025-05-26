@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1bzbfN51Zvlxi4Q+kHEz46NGLAtQbhP9t0G0wViURpfjtkgbkN7XabM+qAqWzFNl2mjHS3b3gD02pkxy9hsuEA==",
+  "dgSpecHash": "qzB3pH6Kof0=",
   "success": true,
   "projectFilePath": "C:\\Users\\Mobile02\\Desktop\\dev\\StarDev\\backend\\MovieStar\\MovieStar.Domain\\MovieStar.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Mobile02\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.14\\microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Mobile02\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.14\\microsoft.windowsdesktop.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Mobile02\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.14\\microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

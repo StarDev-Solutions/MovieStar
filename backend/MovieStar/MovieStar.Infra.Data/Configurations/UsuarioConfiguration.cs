@@ -12,35 +12,12 @@ namespace MovieStar.Infra.Data.Configurations
 
             builder.HasKey(u => u.Id);
 
-            builder.Property(u => u.Nome)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(u => u.Email)
-                .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(u => u.Senha)
-                .IsRequired()
-                .HasMaxLength(64);
-            builder.Property(u => u.Assinante)
-                .IsRequired()
-                .HasDefaultValue(false);
-
-            builder.Property(u => u.Role)
-                .IsRequired()
-                .HasMaxLength(20)
-                .HasDefaultValue("Usuario");
-
-            builder.Property(u => u.Imagem)
-                .IsRequired(false)
-                .HasColumnType("bytea");
-
-            builder.HasMany(u => u.Avaliacao)
-                .WithOne(a => a.Usuario)
-                .HasForeignKey(a => a.UsuarioId)
-                .OnDelete(DeleteBehavior.Cascade);
-
+            builder.Property(u => u.Nome).IsRequired().HasMaxLength(100);
+            builder.Property(u => u.Email).IsRequired().HasMaxLength(100);
+            builder.Property(u => u.Senha).IsRequired().HasMaxLength(255);
+            builder.Property(u => u.Role).IsRequired().HasMaxLength(50);
+            builder.Property(u => u.Assinante).IsRequired();
+            builder.Property(u => u.Imagem).HasColumnType("varbinary(max)");
         }
     }
 }

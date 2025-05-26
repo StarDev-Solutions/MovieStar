@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hJTnxypJZ26hGrH0N6pmQy+RaSHDuvoY36b5hnZlBaoDQh0+gB+S0IEMEK8MdmBv1jyKpjFz5IBcR0q37/zC4Q==",
+  "dgSpecHash": "n60EjJ1iIno=",
   "success": true,
   "projectFilePath": "C:\\Users\\Mobile02\\Desktop\\dev\\StarDev\\backend\\MovieStar\\MovieStar.API\\MovieStar.API.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,11 @@
     "C:\\Users\\Mobile02\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\Mobile02\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\Mobile02\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "C:\\Users\\Mobile02\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    "C:\\Users\\Mobile02\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "C:\\Users\\Mobile02\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.14\\microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Mobile02\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.14\\microsoft.windowsdesktop.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Mobile02\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.14\\microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Mobile02\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.14\\microsoft.netcore.app.host.win-x64.8.0.14.nupkg.sha512"
   ],
   "logs": []
 }

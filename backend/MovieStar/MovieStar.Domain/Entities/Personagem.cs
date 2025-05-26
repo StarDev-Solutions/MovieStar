@@ -1,14 +1,17 @@
-﻿using MovieStar.Domain.Shared.ValueObjects;
+﻿using MovieStar.Domain.Shared.Entities;
 
-namespace MovieStar.Domain.ValueObjects
+namespace MovieStar.Domain.Entities
 {
-    public sealed class Personagem : ValueObject<Personagem>
+    public sealed class Personagem : BaseEntity
     {
         public string NomePersonagem { get; private set; }
         public string NomeAtor { get; private set; }
         public string Imagem { get; private set; }
 
-        public Personagem(string nomePersonagem, string nomeAtor, string imagem)
+        public Personagem()
+        : base(Guid.NewGuid()) {}
+
+        public Personagem(string nomePersonagem, string nomeAtor, string imagem) : base(Guid.NewGuid())
         {
             NomePersonagem = nomePersonagem ?? throw new ArgumentNullException(nameof(nomePersonagem));
             NomeAtor = nomeAtor ?? throw new ArgumentNullException(nameof(nomeAtor));

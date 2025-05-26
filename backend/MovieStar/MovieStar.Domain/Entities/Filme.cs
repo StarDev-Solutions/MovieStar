@@ -1,5 +1,4 @@
 ﻿using MovieStar.Domain.Shared.Entities;
-using MovieStar.Domain.ValueObjects;
 
 namespace MovieStar.Domain.Entities
 {

@@ -10,7 +10,7 @@ C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\MovieStar.Infra.Data.AssemblyInfo.cs
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\MovieStar.Infra.Data.csproj.CoreCompileInputs.cache
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\MovieStar.Infra.Data.sourcelink.json
-C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\MovieStar.Infra.Data.csproj.CopyComplete
+C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\MovieSta.280E9513.Up2Date
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\MovieStar.Infra.Data.dll
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\refint\MovieStar.Infra.Data.dll
 C:\Users\Mobile02\Desktop\dev\StarDev\backend\MovieStar\MovieStar.Infra.Data\obj\Debug\net8.0\MovieStar.Infra.Data.pdb

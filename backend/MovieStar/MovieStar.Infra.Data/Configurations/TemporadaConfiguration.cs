@@ -12,15 +12,12 @@ namespace MovieStar.Infra.Data.Configurations
 
             builder.HasKey(t => t.Id);
 
-            builder.Property(t => t.Numero)
-                .IsRequired();
+            builder.Property(t => t.Numero).IsRequired();
+            builder.Property(t => t.DataLancamento).IsRequired();
 
-            builder.Property(t => t.DataLancamento)
-                .IsRequired();
-
-            builder.HasMany(t => t.Episodio);
-
-            builder.HasIndex(t => t.Numero);
+            builder.HasMany(t => t.Episodio)
+                .WithOne(e => e.Temporada)
+                .HasForeignKey(e => e.TemporadaId);
         }
     }
 }
