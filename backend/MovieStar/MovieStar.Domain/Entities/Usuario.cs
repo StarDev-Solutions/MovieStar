@@ -25,7 +25,7 @@ namespace MovieStar.Domain.Entities
             AvaliacoesSerie = avaliacaoSeries ?? new List<AvaliacaoSerie>();
             Assinante = assinante;
             Role = role;
-            Imagem = imagem;
+            Imagem = imagem ?? Array.Empty<byte>();
         }
 
         public void AlterarNome(string nome)

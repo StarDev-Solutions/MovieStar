@@ -8,13 +8,13 @@ namespace MovieStar.Domain.Entities
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
         public int Duracao { get; private set; }
-        public byte[] Imagem { get; private set; }
+        public byte[]? Imagem { get; private set; }
         public Guid TemporadaId { get; private set; }
         public Temporada Temporada { get; private set; }
 
 
         public Episodio() : base(Guid.NewGuid()) {}
-        public Episodio(int numero, string nome, string descricao, int duracao, byte[] imagem, Guid temporadaId, Temporada temporada) : base(Guid.NewGuid())
+        public Episodio(int numero, string nome, string descricao, int duracao, byte[]? imagem, Guid temporadaId, Temporada temporada) : base(Guid.NewGuid())
         {
             Numero = numero;
             Nome = nome ?? throw new ArgumentNullException(nameof(nome));

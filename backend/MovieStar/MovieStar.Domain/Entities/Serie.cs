@@ -9,8 +9,8 @@ namespace MovieStar.Domain.Entities
         public string Descricao { get; private set; }
         public List<Genero> Genero { get; private set; }
         public List<Personagem> Elenco { get; private set; }
-        public byte[] Imagem { get; private set; }
-        public string Classificacao { get; private set; }
+        public byte[]? Imagem { get; private set; }
+        public double Classificacao { get; private set; }
         public string Origem { get; private set; }
         public int FaixaEtaria { get; private set; }
         public List<AvaliacaoSerie>? Avaliacoes { get; private set; } = new();
@@ -21,7 +21,7 @@ namespace MovieStar.Domain.Entities
         private Serie() : base(Guid.NewGuid()) { }
 
         public Serie(string nome, string descricao, List<Genero> genero, List<Personagem> elenco,
-            int faixaEtaria, byte[] imagem, string classificacao, string origem,
+            int faixaEtaria, byte[]? imagem, double classificacao, string origem,
              List<AvaliacaoSerie>? avaliacao, List<Temporada> temporada) : base(Guid.NewGuid())
         {
             Nome = nome;
@@ -29,7 +29,7 @@ namespace MovieStar.Domain.Entities
             Genero = genero;
             Elenco = elenco;
             FaixaEtaria = faixaEtaria;
-            Imagem = imagem;
+            Imagem = imagem ?? Array.Empty<byte>();
             Classificacao = classificacao;
             Origem = origem;
             Avaliacoes = avaliacao;

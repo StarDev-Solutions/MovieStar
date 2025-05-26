@@ -6,16 +6,16 @@ namespace MovieStar.Domain.Entities
     {
         public string NomePersonagem { get; private set; }
         public string NomeAtor { get; private set; }
-        public string Imagem { get; private set; }
+        public byte[]? Imagem { get; private set; }
 
         public Personagem()
         : base(Guid.NewGuid()) {}
 
-        public Personagem(string nomePersonagem, string nomeAtor, string imagem) : base(Guid.NewGuid())
+        public Personagem(string nomePersonagem, string nomeAtor, byte[]? imagem) : base(Guid.NewGuid())
         {
             NomePersonagem = nomePersonagem ?? throw new ArgumentNullException(nameof(nomePersonagem));
             NomeAtor = nomeAtor ?? throw new ArgumentNullException(nameof(nomeAtor));
-            Imagem = imagem ?? string.Empty;
+            Imagem = imagem ?? Array.Empty<byte>();
         }
 
         public void AlterarNomePersonagem(string nomePersonagem)
@@ -28,9 +28,9 @@ namespace MovieStar.Domain.Entities
             NomeAtor = nomeAtor ?? throw new ArgumentNullException(nameof(nomeAtor));
         }
 
-        public void AlterarImagem(string imagem)
+        public void AlterarImagem(byte[] imagem)
         {
-            Imagem = imagem ?? string.Empty;
+            Imagem = imagem;
         }
     }
 }
