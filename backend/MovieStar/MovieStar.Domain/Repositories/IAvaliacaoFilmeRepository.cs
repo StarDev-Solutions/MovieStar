@@ -2,11 +2,11 @@
 
 namespace MovieStar.Domain.Repositories
 {
-    public interface IAvaliacaoRepository
+    public interface IAvaliacaoFilmeRepository
     {
-        Task<IEnumerable<AvaliacaoFilme>> GetAvaliacoesByFilmeIdAsync(Guid filmeId);
         Task<AvaliacaoFilme> GetAvaliacaoByIdAsync(Guid id);
-        Task<AvaliacaoFilme> GetAvaliacaoByUserIdAsync(Guid userId);
+        Task<IEnumerable<AvaliacaoFilme>> GetAvaliacoesByFilmeIdAsync(Guid filmeId);
+        Task<IEnumerable<AvaliacaoFilme>> GetAvaliacoesByUserIdAsync(Guid userId);
         Task AddAvaliacaoAsync(AvaliacaoFilme avaliacao);
         Task UpdateAvaliacaoAsync(AvaliacaoFilme avaliacao);
         Task DeleteAvaliacaoAsync(int id);

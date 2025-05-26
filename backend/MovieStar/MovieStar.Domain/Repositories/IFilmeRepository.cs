@@ -7,6 +7,7 @@ namespace MovieStar.Domain.Repositories
         Task<Filme> GetByIdAsync(Guid id);
         Task<Filme> GetByNameAsync(string name);
         Task<IEnumerable<Filme>> GetAllAsync();
+        Task<IEnumerable<Filme>> GetAllRangeAsync(int index);
         Task AddAsync(Filme filme);
         Task UpdateAsync(Filme filme);
         Task DeleteAsync(Guid id);

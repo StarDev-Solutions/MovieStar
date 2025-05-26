@@ -14,7 +14,7 @@ namespace MovieStar.Infra.Data.Configurations
 
             builder.Property(p => p.NomePersonagem).IsRequired().HasMaxLength(100);
             builder.Property(p => p.NomeAtor).IsRequired().HasMaxLength(100);
-            builder.Property(p => p.Imagem).IsRequired().HasMaxLength(500);
+            builder.Property(p => p.Imagem).HasColumnType("varbinary(max)");
         }
     }
 }
