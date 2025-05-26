@@ -4,7 +4,7 @@ import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 class BoxCardPost extends StatelessWidget {
-  final BlogPost post;
+  final Artigo post;
 
   const BoxCardPost({super.key, required this.post});
 

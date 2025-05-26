@@ -3,7 +3,7 @@ import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
 class PostSearchTextfield extends StatefulWidget {
-  final void Function(BlogPost movie) selectPost;
+  final void Function(Artigo movie) selectPost;
 
   const PostSearchTextfield({super.key, required this.selectPost});
 
