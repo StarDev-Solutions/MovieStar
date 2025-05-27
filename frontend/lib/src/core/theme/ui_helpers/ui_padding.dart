@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/core/theme/ui_helpers/ui_responsivity.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:sizer/sizer.dart';
 
 ///Cria um padding para o widget, seguindo a regra do aplicativo

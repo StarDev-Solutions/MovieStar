@@ -1,4 +1,4 @@
-name: frontend
+name: moviestar
 description: "Movie Star - StarDev Solutions. Uma experiência estelar para amantes do cinema."
 publish_to: 'none'
 version: 0.1.0
@@ -16,21 +16,33 @@ dependencies:
   sizer: ^3.0.5
   get: ^4.7.2
   skeletonizer: ^1.4.3
+  flutter_native_splash: ^2.4.5
+  dartz: ^0.10.1
+  equatable: ^2.0.7
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+#Gera splashScreen da aplicação
+flutter_native_splash:
+  color: "#18181B"
+  image: assets/splash/splash_screen.png
+  android: true
+  ios: true
+
+  android_12:
+    color: "#18181B"
+    image: assets/splash/splash_screen_v12.png
+
 flutter:
   uses-material-design: true
-
   assets:
     - assets/images/
     - assets/fonts/
-    - assets/lotties/
     - assets/rive/
-    - .env
+    - assets/splash/
 
   fonts:
   - family: Axiforma
