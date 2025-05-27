@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
-class CategoriaFilme extends StatelessWidget {
-  const CategoriaFilme({super.key});
+class BoxCategoriaFilme extends StatelessWidget {
+  const BoxCategoriaFilme({super.key});
 
   @override
   Widget build(BuildContext context) {

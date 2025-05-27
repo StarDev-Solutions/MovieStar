@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:moviestar/src/autenticacao/presentation/pages/autenticacao_page.dart';
 import 'package:moviestar/src/autenticacao/presentation/pages/cadastro_page.dart';
-import 'package:moviestar/src/base/presentation/pages/widgets/checar_autenticacao.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_checagem_autenticacao.dart';
 import 'package:moviestar/src/midia/presentation/pages/detalhe_page.dart';
 import 'package:moviestar/src/midia/presentation/pages/principal_page.dart';
 import 'package:moviestar/src/base/presentation/pages/base_page.dart';
@@ -9,8 +9,8 @@ import 'package:moviestar/src/base/presentation/pages/base_page.dart';
 abstract class Pages {
   static final pages = <GetPage>[
     GetPage(
-      name: Routes.checarRoute,
-      page: () => const ChecarAutenticacao(),
+      name: Routes.checagemRoute,
+      page: () => const BoxChecagemAutenticacao(),
     ),
     GetPage(
       name: Routes.autenticacaoRoute,
@@ -36,7 +36,7 @@ abstract class Pages {
 }
 
 abstract class Routes {
-  static const String checarRoute = '/checar';
+  static const String checagemRoute = '/checagem';
   static const String autenticacaoRoute = '/autenticacao';
   static const String cadastroRoute = '/cadastro';
   static const String baseRoute = '/base';

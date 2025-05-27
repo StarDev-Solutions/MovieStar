@@ -10,4 +10,9 @@ class AutenticacaoController extends GetxController {
 
   ///TODO: Implementar método de login.
   void entrar() => _usuario.value = 'Novo usuário';
+
+  ///TODO: Implementar método de cadastro.
+  void cadastrar() {
+    entrar();
+  }
 }

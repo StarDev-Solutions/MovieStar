@@ -11,4 +11,6 @@ TextStyle get contentTitleStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 1
 TextStyle get releaseDateStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 12.s3, fontWeight: FontWeight.w400, color: hintColor, decoration: TextDecoration.none);
 
 TextStyle get excerptStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 14.s3, fontWeight: FontWeight.w400, color: hintColor, decoration: TextDecoration.none);
-TextStyle get primaryButtonStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 17.s3, fontWeight: FontWeight.bold, color: hintColor, decoration: TextDecoration.none);
+TextStyle get primaryButtonStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 16.s3, fontWeight: FontWeight.bold, color: colorLabelOnPrimary, decoration: TextDecoration.none);
+
+TextStyle get labelTextFieldStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 14.s3, fontWeight: FontWeight.w400, decoration: TextDecoration.none);

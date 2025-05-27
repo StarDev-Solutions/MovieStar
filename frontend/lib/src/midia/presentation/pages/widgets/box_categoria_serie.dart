@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
-class CategoriaSerie extends StatelessWidget {
-  const CategoriaSerie({super.key});
+class BoxCategoriaSerie extends StatelessWidget {
+  const BoxCategoriaSerie({super.key});
 
   @override
   Widget build(BuildContext context) {

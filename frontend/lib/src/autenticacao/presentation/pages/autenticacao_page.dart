@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moviestar/src/autenticacao/presentation/controllers/autenticacao_controller.dart';
-import 'package:moviestar/src/autenticacao/presentation/pages/widgets/campo_texto.dart';
+import 'package:moviestar/src/autenticacao/presentation/pages/widgets/box_campo_texto.dart';
 import 'package:moviestar/src/core/route.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/botao_primario.dart';
+import 'package:moviestar/src/midia/presentation/pages/widgets/box_botao_primario.dart';
 
 class AutenticacaoPage extends StatefulWidget {
   const AutenticacaoPage({super.key});
@@ -20,8 +20,6 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _senhaController = TextEditingController();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +37,9 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
                   child: Column(
                     spacing: 30.s3,
                     children: [
-                      CampoTexto(
+                      BoxCampoTexto(
                         controller: _emailController,
-                        label: 'Email',
+                        label: 'E-mail',
                         hintText: 'Insira seu email...',
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
@@ -51,7 +49,7 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
                           return null;
                         },
                       ),
-                      CampoTexto(
+                      BoxCampoTexto(
                         controller: _senhaController,
                         isPassword: true,
                         label: 'Senha',
@@ -63,7 +61,10 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
                           return null;
                         },
                       ),
-                      BotaoPrimario(text: 'Entrar', onPressed: () => _autenticacaoController.entrar()),
+                      BoxBotaoPrimario(
+                        text: 'Entrar',
+                        onPressed: () => _autenticacaoController.entrar(),
+                      ),
                       TextButton(onPressed: () => Get.toNamed(Routes.cadastroRoute), child: UIText.releaseDate('Não tem uma conta? Cadastre-se'))
                     ],
                   )

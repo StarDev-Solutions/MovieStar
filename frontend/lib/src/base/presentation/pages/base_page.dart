@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moviestar/src/base/domain/entities/nav_item_model.dart';
 import 'package:moviestar/src/base/domain/entities/rive_model.dart';
 import 'package:moviestar/src/midia/presentation/pages/principal_page.dart';
-import 'package:moviestar/src/base/presentation/pages/widgets/barra_selecao_animada.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_barra_selecao_animada.dart';
 import 'package:moviestar/src/blog/presentation/blog_page.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
@@ -74,7 +74,7 @@ class _BasePageState extends State<BasePage> with SingleTickerProviderStateMixin
                   return Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      BarraSelecaoAnimada(isActive: _selectedNavIndex == index),
+                      BoxBarraSelecaoAnimada(isActive: _selectedNavIndex == index),
                       InkWell(
                         borderRadius: BorderRadius.circular(10),
                         onTap: () {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class BarraSelecaoAnimada extends StatelessWidget {
+class BoxBarraSelecaoAnimada extends StatelessWidget {
   final bool isActive;
 
-  const BarraSelecaoAnimada({super.key, required this.isActive});
+  const BoxBarraSelecaoAnimada({super.key, required this.isActive});
 
   @override
   Widget build(BuildContext context) {

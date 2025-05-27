@@ -4,10 +4,10 @@ import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:moviestar/src/midia/domain/entities/movie.dart';
 import 'package:moviestar/src/midia/presentation/controllers/midia_controller.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/categoria_serie.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/catalogo_midia.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/categoria_filme.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/busca_midia.dart';
+import 'package:moviestar/src/midia/presentation/pages/widgets/box_categoria_serie.dart';
+import 'package:moviestar/src/midia/presentation/pages/widgets/box_catalogo_midia.dart';
+import 'package:moviestar/src/midia/presentation/pages/widgets/box_categoria_filme.dart';
+import 'package:moviestar/src/midia/presentation/pages/widgets/box_busca_midia.dart';
 import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:get/get.dart';
@@ -85,7 +85,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                     SizedBox(height: 15.s),
                     SlideTransition(
                       position: _offsetTtoB,
-                      child: BuscaMidia(
+                      child: BoxBuscaMidia(
                         searchFocusNode: focusNode,
                         midia: Get.find<MidiaController>().filmesPopulares,
                         sugestaoSelecionada: selectMovie,
@@ -105,11 +105,11 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                 children: [
                   SlideTransition(
                     position: _offsetLtoR,
-                    child: CategoriaFilme(),
+                    child: BoxCategoriaFilme(),
                   ),
                   SlideTransition(
                     position: _offsetRtoL,
-                    child: CategoriaSerie(),
+                    child: BoxCategoriaSerie(),
                   ),
                 ],
               ),
@@ -158,7 +158,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                                         builder: (context, value, child) {
                                           return Transform.translate(
                                             offset: value,
-                                            child: CatalogoMidia(movie: e),
+                                            child: BoxCatalogoMidia(movie: e),
                                           );
                                         }
                                       );
