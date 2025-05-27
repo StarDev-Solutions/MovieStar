@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviestar/src/core/theme/colors.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 class BotaoPrimario extends StatelessWidget {
   final String text;
@@ -9,48 +10,72 @@ class BotaoPrimario extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [colorPrimary, colorSecondary],
-        ),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: colorPrimary.withValues(alpha: 0.4),
-            blurRadius: 12,
-            spreadRadius: 1,
-            offset: const Offset(-3, -3),
-          ),
-          BoxShadow(
-            color: colorSecondary.withValues(alpha: 0.4),
-            blurRadius: 12,
-            spreadRadius: 1,
-            offset: const Offset(3, 3),
-          ),
-        ],
-      ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: colorBackground,
-          foregroundColor: hintColor,
-          elevation: 0,
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        ShaderMask(
+          shaderCallback: (bounds) {
+            return LinearGradient(
+              begin: Alignment.topCenter,
+              end: const Alignment(0.5, 1),
+              colors: [colorPrimary, colorSecondary],
+            ).createShader(bounds);
+          },
+          child: SizedBox(
+            width: MediaQuery.sizeOf(context).width,
+            child: ElevatedButton(
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                padding: EdgeInsets.symmetric(horizontal: 16.s2, vertical: 8.s2),
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: UIText.primaryButtonStyle(text),
+            ),
           ),
         ),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 16,
-            color: hintColor,
-            fontWeight: FontWeight.bold,
+        SizedBox(
+          width: MediaQuery.sizeOf(context).width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                height: 15.s3,
+                width: 110.s3,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: colorPrimary.withValues(alpha: 0.5),
+                      blurRadius: 20,
+                      spreadRadius: 10,
+                      offset: const Offset(20, 0)
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 15.s3,
+                width: 110.s3,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: colorSecondary.withValues(alpha: 0.5),
+                      blurRadius: 20,
+                      spreadRadius: 10,
+                      offset: const Offset(-20, 0)
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-      ),
+      ],
     );
   }
 }

@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:moviestar/src/autenticacao/presentation/controllers/autenticacao_controller.dart';
+import 'package:moviestar/src/autenticacao/presentation/pages/widgets/campo_texto.dart';
+import 'package:moviestar/src/core/route.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
+import 'package:moviestar/src/midia/presentation/pages/widgets/botao_primario.dart';
 
 class AutenticacaoPage extends StatefulWidget {
   const AutenticacaoPage({super.key});
@@ -8,8 +15,99 @@ class AutenticacaoPage extends StatefulWidget {
 }
 
 class _AutenticacaoPageState extends State<AutenticacaoPage> {
+  final AutenticacaoController _autenticacaoController = Get.find<AutenticacaoController>();
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _senhaController = TextEditingController();
+
+
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(); ///TODO: Implementar UI de autenticação.
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            spacing: 60.s3,
+            children: [
+              _buildLogo(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    spacing: 30.s3,
+                    children: [
+                      CampoTexto(
+                        controller: _emailController,
+                        label: 'Email',
+                        hintText: 'Insira seu email...',
+                        keyboardType: TextInputType.emailAddress,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Por favor, insira seu email';
+                          }
+                          return null;
+                        },
+                      ),
+                      CampoTexto(
+                        controller: _senhaController,
+                        isPassword: true,
+                        label: 'Senha',
+                        hintText: 'Insira sua senha...',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Por favor, insira sua senha';
+                          }
+                          return null;
+                        },
+                      ),
+                      BotaoPrimario(text: 'Entrar', onPressed: () => _autenticacaoController.entrar()),
+                      TextButton(onPressed: () => Get.toNamed(Routes.cadastroRoute), child: UIText.releaseDate('Não tem uma conta? Cadastre-se'))
+                    ],
+                  )
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ); 
+  }
+
+  ///Método para construir a logo do aplicativo.
+  Widget _buildLogo() {
+    return Hero(
+      tag: 'logo',
+      child: Container(
+        width: 200.s2,
+        height: 200.s2,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Theme.of(context).cardColor.withValues(alpha: 0.9),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
+              blurRadius: 20,
+              spreadRadius: 5,
+            ),
+          ],
+        ),
+        child: Center(
+          child: TweenAnimationBuilder<double>(
+            tween: Tween<double>(begin: 0.0, end: 1.0),
+            duration: const Duration(milliseconds: 1500),
+            curve: Curves.elasticOut,
+            builder: (_, value, _) {
+              return Transform.scale(
+                scale: value,
+                child: Image.asset('assets/images/logo.png')
+              );
+            },
+          ),
+        ),
+      ),
+    );
   }
 }

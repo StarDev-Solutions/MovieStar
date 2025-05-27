@@ -15,7 +15,9 @@ class UIText extends StatelessWidget {
   
   UIText.contentTitle(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = contentTitleStyle;
   UIText.releaseDate(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = releaseDateStyle;
+
   UIText.excerpt(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = excerptStyle;
+  UIText.primaryButtonStyle(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = primaryButtonStyle;
 
   @override
   Widget build(BuildContext context) {
