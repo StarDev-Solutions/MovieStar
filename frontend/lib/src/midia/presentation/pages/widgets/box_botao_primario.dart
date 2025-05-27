@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
+import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
-class PostSearchTextfield extends StatefulWidget {
-  final void Function(Artigo movie) selectPost;
+class BoxBotaoPrimario extends StatelessWidget {
+  final String text;
+  final void Function()? onPressed;
 
-  const PostSearchTextfield({super.key, required this.selectPost});
-
-  @override
-  State<PostSearchTextfield> createState() => _PostSearchTextfieldState();
-}
-
-class _PostSearchTextfieldState extends State<PostSearchTextfield> {
+  const BoxBotaoPrimario({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 400),
+    return SizedBox(
+      width: MediaQuery.sizeOf(context).width,
       child: Container(
         padding: EdgeInsets.all(2),
         decoration: BoxDecoration(
@@ -39,16 +34,14 @@ class _PostSearchTextfieldState extends State<PostSearchTextfield> {
             ),
           ],
         ),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return SearchBar(
-              onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
-              shape: WidgetStatePropertyAll(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-              ),
-              backgroundColor: WidgetStatePropertyAll(colorBackground),
-            );
-          }
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            padding: EdgeInsets.symmetric(horizontal: 16.s2, vertical: 10.s2),
+          ),
+          child: UIText.primaryButtonStyle(text),
         ),
       ),
     );

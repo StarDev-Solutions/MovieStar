@@ -3,10 +3,10 @@ import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
-class BoxCardPost extends StatelessWidget {
-  final Artigo post;
+class BoxCardArtigo extends StatelessWidget {
+  final Artigo artigo;
 
-  const BoxCardPost({super.key, required this.post});
+  const BoxCardArtigo({super.key, required this.artigo});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,8 @@ class BoxCardPost extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-            child: Image.network(
-              post.imagePath,
+            child: Image.asset(
+              artigo.imagePath,
               height: 200.s,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -31,8 +31,8 @@ class BoxCardPost extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                UIText.contentTitle(post.title),
-                UIText.excerpt(post.excerpt, maxLines: 4),
+                UIText.contentTitle(artigo.title),
+                UIText.excerpt(artigo.excerpt, maxLines: 4),
               ],
             ),
           ),

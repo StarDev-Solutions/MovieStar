@@ -3,9 +3,9 @@ import 'package:moviestar/src/midia/domain/entities/movie.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:intl/intl.dart';
 
-class CatalogoMidia extends StatelessWidget {
+class BoxCatalogoMidia extends StatelessWidget {
   final Filme movie;
-  const CatalogoMidia({super.key, required this.movie});
+  const BoxCatalogoMidia({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CatalogoMidia extends StatelessWidget {
           child: Hero(
             tag: movie.id,
             child: FadeInImage.assetNetwork(
-              placeholder: 'assets/images/placeholder_image.png',
+              placeholder: 'assets/images/placeholder_midia.png',
               image: 'https://image.tmdb.org/t/p/w500${movie.posterPath}',
               width: 100,
               fit: BoxFit.contain,

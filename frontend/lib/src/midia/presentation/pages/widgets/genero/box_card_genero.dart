@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/midia/domain/entities/movie.dart';
 
-class CardGenero extends StatelessWidget {
+class BoxCardGenero extends StatelessWidget {
   final Filme movieModel;
   
-  const CardGenero({super.key, required this.movieModel});
+  const BoxCardGenero({super.key, required this.movieModel});
 
   @override
   Widget build(BuildContext context) {

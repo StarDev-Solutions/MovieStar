@@ -13,7 +13,7 @@ class _DetalhePageState extends State<DetalhePage> {
     return Scaffold(
       body: Column(
         children: [
-          Image.network(''),
+          Image.asset(''),
         ],
       ),
     );

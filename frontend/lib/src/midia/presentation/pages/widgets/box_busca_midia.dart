@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:moviestar/src/midia/domain/entities/movie.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
-class BuscaMidia extends StatefulWidget {
+class BoxBuscaMidia extends StatefulWidget {
   final FocusNode searchFocusNode;
   final List<Filme> midia;
   final void Function(Filme midia) sugestaoSelecionada;
 
-  const BuscaMidia({
+  const BoxBuscaMidia({
     super.key,
     required this.searchFocusNode,
     required this.midia,
@@ -15,10 +15,10 @@ class BuscaMidia extends StatefulWidget {
   });
 
   @override
-  State<BuscaMidia> createState() => _BuscaMidiaState();
+  State<BoxBuscaMidia> createState() => _BoxBuscaMidiaState();
 }
 
-class _BuscaMidiaState extends State<BuscaMidia> {
+class _BoxBuscaMidiaState extends State<BoxBuscaMidia> {
 
   @override
   Widget build(BuildContext context) {

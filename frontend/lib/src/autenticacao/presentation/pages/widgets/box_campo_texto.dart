@@ -4,7 +4,7 @@ import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 ///Classe responsavel por criar um TextField customizado.
-class CampoTexto extends StatefulWidget {
+class BoxCampoTexto extends StatefulWidget {
   final BuildContext? context;
   final bool enabled;
   final bool isReadOnly;
@@ -34,7 +34,7 @@ class CampoTexto extends StatefulWidget {
   final FocusNode? focusNode;
   final Function()? onPressed;
 
-  const CampoTexto({
+  const BoxCampoTexto({
     super.key,
     this.context,
     this.enabled = true,
@@ -67,10 +67,10 @@ class CampoTexto extends StatefulWidget {
   });
   
   @override
-  State<CampoTexto> createState() => _CampoTextoState();
+  State<BoxCampoTexto> createState() => _BoxCampoTextoState();
 }
 
-class _CampoTextoState extends State<CampoTexto> {
+class _BoxCampoTextoState extends State<BoxCampoTexto> {
   bool _obscureText = false;
 
   @override
@@ -102,15 +102,13 @@ class _CampoTextoState extends State<CampoTexto> {
         validator: widget.validator,
         inputFormatters: widget.inputFormatters,
         obscureText: _obscureText,
-        style: excerptStyle,
+        style: labelTextFieldStyle,
         decoration: InputDecoration(
-          label: UIText.label(widget.label ?? '', maxLines: 3),
+          label: UIText.labelTextField(widget.label ?? '', maxLines: 3),
           counterText: '',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
           prefixIcon: widget.prefixIcon != null
-              ? Icon(
-                  widget.prefixIcon,
-                )
+              ? Icon(widget.prefixIcon)
               : null,
           prefixIconConstraints: BoxConstraints.tight(Size(60.s2, 25.s2)),
           suffixIcon: widget.isPassword
@@ -118,9 +116,7 @@ class _CampoTextoState extends State<CampoTexto> {
                   child: Icon(
                     _obscureText ? Icons.visibility : Icons.visibility_off,
                   ),
-                  onTap: () {
-                    setState(() => _obscureText = !_obscureText);
-                  },
+                  onTap: () => setState(() => _obscureText = !_obscureText),
                 )
               : widget.enableButtonCleanValue ? 
               GestureDetector(
@@ -133,13 +129,14 @@ class _CampoTextoState extends State<CampoTexto> {
                   onTap: widget.onPressedSuffixIcon,
                   child: Icon(
                     widget.suffixIcon,
+                    color: colorLabelOnPrimary.withOpacity(0.2),
                   ),
                 ),
           suffixIconConstraints: widget.isPassword || widget.enableButtonCleanValue || widget.suffixIcon != null ? BoxConstraints.tight(Size(60.s2, 25.s2)) : BoxConstraints.tight(const Size(20, 0)),
           filled: true,
-          hintStyle: releaseDateStyle,
+          hintStyle: excerptStyle,
           hintText: widget.hintText,
-          contentPadding: widget.contentPadding ?? EdgeInsets.symmetric(horizontal: 10.s, vertical: 20.s),
+          contentPadding: widget.contentPadding ?? EdgeInsets.symmetric(horizontal: 10.s, vertical: 17.s),
         ),
       ),
     );

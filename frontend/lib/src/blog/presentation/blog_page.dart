@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:moviestar/src/blog/presentation/controllers/blog_controller.dart';
-import 'package:moviestar/src/blog/presentation/widgets/box_post_card.dart';
-import 'package:moviestar/src/blog/presentation/widgets/post_search_textfield.dart';
+import 'package:moviestar/src/blog/presentation/widgets/box_card_artigo.dart';
+import 'package:moviestar/src/blog/presentation/widgets/box_busca_artigo.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
@@ -62,14 +62,18 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            UIText.label('Pesquisar pelo título'),
+            FadeTransition(
+              opacity: _opacityAnimation,
+              child: UIText.label('Pesquisar pelo título'),
+            ),
             SizedBox(height: 15.s),
             SlideTransition(
               position: _offsetTtoB,
-              child: PostSearchTextfield(
-                selectPost: selectPost,
+              child: BoxBuscaArtigo(
+                selecionarArtigo: selectPost,
               ),
             ),
+            SizedBox(height: 20.s),
             Obx(() {
                 return Skeletonizer(
                   enabled: _blogController.state == NotifierState.loading,
@@ -79,7 +83,20 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
                       separatorBuilder: (_, _) => SizedBox(height: 20),
                       itemCount: _blogController.artigos.length,
                       itemBuilder: (_, index) {
-                        return BoxCardPost(post: _blogController.artigos[index]);
+
+                      return TweenAnimationBuilder(
+                        tween: Tween(begin: Offset(1, 0), end: Offset.zero),
+                        duration: Duration(milliseconds: 300),
+                        builder: (context, offset, child) {
+                          return Transform.translate(
+                            offset: Offset(offset.dx * 100, 0),
+                            child: child,
+                          );
+                        },
+                        child: BoxCardArtigo(
+                          artigo: _blogController.artigos[index],
+                        ),
+                      );
                       },
                     ),
                   ),

@@ -12,7 +12,6 @@ import 'package:sizer/sizer.dart';
 
 void main() {
   final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  ///Mantendo a splashscreen na tela.
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   runApp(const MainApp());
@@ -40,7 +39,7 @@ class _MainAppState extends State<MainApp> {
               debugShowCheckedModeBanner: false,
               theme: Style.material3Theme,
               getPages: Pages.pages,
-              initialRoute: Routes.checarRoute,
+              initialRoute: Routes.checagemRoute,
               initialBinding: BindingsBuilder(() {
                 Get.put(Dio());
                 Get.put(AutenticacaoController());
@@ -58,7 +57,7 @@ class _MainAppState extends State<MainApp> {
   ///Método para realizar o carregamento das imagens em cache.
   Future<void> _precacheImages(BuildContext context) async {
     await Future.wait([
-      precacheImage(const AssetImage('assets/images/placeholder_image.png'), context),
+      precacheImage(const AssetImage('assets/images/placeholder_midia.png'), context),
       precacheImage(const AssetImage('assets/images/spider_man.png'), context),
       precacheImage(const AssetImage('assets/images/midoria.png'), context),
     ]);

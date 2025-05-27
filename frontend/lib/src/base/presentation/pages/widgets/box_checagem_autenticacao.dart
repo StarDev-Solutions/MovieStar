@@ -5,8 +5,8 @@ import 'package:moviestar/src/autenticacao/presentation/pages/autenticacao_page.
 import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 import 'package:moviestar/src/base/presentation/pages/base_page.dart';
 
-class ChecarAutenticacao extends StatelessWidget {
-  const ChecarAutenticacao({super.key});
+class BoxChecagemAutenticacao extends StatelessWidget {
+  const BoxChecagemAutenticacao({super.key});
 
   @override
   Widget build(BuildContext context) {
