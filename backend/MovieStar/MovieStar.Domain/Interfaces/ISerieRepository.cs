@@ -1,16 +1,18 @@
 ﻿using MovieStar.Domain.Entities;
 
-namespace MovieStar.Domain.Repositories
+namespace MovieStar.Domain.Interfaces
 {
     public interface ISerieRepository
     {
         Task<Serie> GetByIdAsync(Guid id);
+        Task<Serie> GetByNameAsync(string name);
         Task<IEnumerable<Serie>> GetAllAsync();
-        Task AddAsync(Serie serie);
-        Task UpdateAsync(Serie serie);
-        Task DeleteAsync(Guid id);
+        Task<IEnumerable<Serie>> GetAllRangeAsync(int index);
         Task<IEnumerable<Serie>> GetByGenreAsync(string genre);
         Task<IEnumerable<Serie>> GetByReleaseDateRangeAsync(DateTime startDate, DateTime endDate);
         Task<IEnumerable<Serie>> GetByRatingRangeAsync(double minRating, double maxRating);
+        Task AddAsync(Serie serie);
+        Task UpdateAsync(Serie serie);
+        Task DeleteAsync(Guid id);
     }
 }

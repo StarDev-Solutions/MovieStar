@@ -1,6 +1,6 @@
 ﻿using MovieStar.Domain.Entities;
 
-namespace MovieStar.Domain.Repositories
+namespace MovieStar.Domain.Interfaces
 {
     public interface IPersonagemRepository
     {

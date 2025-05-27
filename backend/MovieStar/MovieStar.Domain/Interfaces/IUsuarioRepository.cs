@@ -1,13 +1,13 @@
 ﻿using MovieStar.Domain.Entities;
 
-namespace MovieStar.Domain.Repositories
+namespace MovieStar.Domain.Interfaces
 {
     public interface IUsuarioRepository
     {
         Task<Usuario> GetByEmailAsync(string email);
         Task<IEnumerable<Usuario>> GetAllAsync();
-        Task AddAsync(Usuario usuario);
-        Task UpdateAsync(Usuario usuario);
-        Task DeleteAsync(int id);
+        Task<Usuario> AddAsync(Usuario usuario);
+        Task<Usuario> UpdateAsync(Usuario usuario);
+        Task<Usuario> DeleteAsync(Usuario usuario);
     }
 }

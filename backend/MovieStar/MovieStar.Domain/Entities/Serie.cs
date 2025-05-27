@@ -58,7 +58,7 @@ namespace MovieStar.Domain.Entities
         {
             Imagem = imagem;
         }
-        public void AtualizarClassificacao(string classificacao)
+        public void AtualizarClassificacao(double classificacao)
         {
             Classificacao = classificacao;
         }
