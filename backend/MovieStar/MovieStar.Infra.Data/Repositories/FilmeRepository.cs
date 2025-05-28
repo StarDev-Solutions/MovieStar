@@ -2,7 +2,6 @@
 using MovieStar.Domain.Entities;
 using MovieStar.Domain.Repositories;
 using MovieStar.Infra.Data.Persistence;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MovieStar.Infra.Data.Repositories
 {
@@ -128,7 +127,7 @@ namespace MovieStar.Infra.Data.Repositories
             if (filme != null)
             {
                 _context.Filmes.Remove(filme);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync().ConfigureAwait(false);
             }
         }        
     }

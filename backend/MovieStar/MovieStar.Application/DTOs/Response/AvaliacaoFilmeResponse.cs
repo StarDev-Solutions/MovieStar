@@ -4,7 +4,7 @@
         Guid AvaliacaoId,
         UsuarioResponse Usuario,
         string Comentario,
-        int Nota,
+        double Nota,
         DateTime DataAvaliacao,
         FilmeResponse Serie);
 }

@@ -134,7 +134,7 @@ namespace MovieStar.Infra.Data.Repositories
             if (serie != null)
             {
                 _context.Series.Remove(serie);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync().ConfigureAwait(false);
             }
         }
     }

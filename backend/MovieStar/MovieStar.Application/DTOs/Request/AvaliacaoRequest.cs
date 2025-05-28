@@ -11,7 +11,7 @@ namespace MovieStar.Application.DTOs.Request
         [StringLength(500, ErrorMessage = "O comentário deve ter no máximo 500 caracteres.")]
         string Comentario,
         [Required(ErrorMessage = "A nota é obrigatória.")]
-        [Range(1, 10, ErrorMessage = "A nota deve estar entre 1 e 10.")]
-        int Nota
+        [Range(0, 5, ErrorMessage = "A nota deve estar entre 0 e 5.")]
+        double Nota
         );
 }

@@ -4,8 +4,8 @@ namespace MovieStar.Domain.Repositories
 {
     public interface ISerieRepository
     {
-        Task<Serie> GetByIdAsync(Guid id);
-        Task<Serie> GetByNameAsync(string name);
+        Task<Serie?> GetByIdAsync(Guid id);
+        Task<Serie?> GetByNameAsync(string name);
         Task<IEnumerable<Serie>> GetAllAsync();
         Task<IEnumerable<Serie>> GetAllRangeAsync(int skip, int take);
         Task<IEnumerable<Serie>> GetByGenreAsync(string genre);

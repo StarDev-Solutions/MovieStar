@@ -4,7 +4,7 @@
         Guid AvaliacaoId,
         UsuarioResponse UsuarioId,
         string Comentario,
-        int Nota,
+        double Nota,
         DateTime DataAvaliacao,
         SerieResponse Serie);
 }

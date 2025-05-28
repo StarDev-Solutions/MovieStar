@@ -7,7 +7,7 @@ namespace MovieStar.Domain.Entities
         public Guid UsuarioId { get; private set; }
         public Usuario Usuario { get; private set; }
         public string Comentario { get; private set; }
-        public int Nota { get; private set; }
+        public double Nota { get; private set; }
         public DateTime DataAvaliacao { get; private set; }
         protected Avaliacao() : base(Guid.NewGuid()) { }
         protected Avaliacao(Guid usuarioId, string comentario, int nota) : base(Guid.NewGuid())
