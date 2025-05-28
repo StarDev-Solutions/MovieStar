@@ -8,24 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Mobile02\\.nuget\\packages\\": {},
-    "C:\\Users\\Mobile02\\Desktop\\devexpress\\Components\\Offline Packages": {}
+    "C:\\Users\\arthu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mobile02\\Desktop\\dev\\StarDev\\backend\\MovieStar\\MovieStar.Domain\\MovieStar.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\arthu\\Documents\\dev\\MovieApp\\backend\\MovieStar\\MovieStar.Domain\\MovieStar.Domain.csproj",
       "projectName": "MovieStar.Domain",
-      "projectPath": "C:\\Users\\Mobile02\\Desktop\\dev\\StarDev\\backend\\MovieStar\\MovieStar.Domain\\MovieStar.Domain.csproj",
-      "packagesPath": "C:\\Users\\Mobile02\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mobile02\\Desktop\\dev\\StarDev\\backend\\MovieStar\\MovieStar.Domain\\obj\\",
+      "projectPath": "C:\\Users\\arthu\\Documents\\dev\\MovieApp\\backend\\MovieStar\\MovieStar.Domain\\MovieStar.Domain.csproj",
+      "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\arthu\\Documents\\dev\\MovieApp\\backend\\MovieStar\\MovieStar.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\Mobile02\\Desktop\\devexpress\\Components\\Offline Packages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mobile02\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 24.1.config",
+        "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\Mobile02\\Desktop\\devexpress\\Components\\System\\Components\\Packages": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -68,20 +68,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.14, 8.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.14, 8.0.14]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.14, 8.0.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

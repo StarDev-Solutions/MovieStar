@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MovieStar.Domain.Entities;
-using MovieStar.Domain.Interfaces;
+using MovieStar.Domain.Repositories;
 using MovieStar.Infra.Data.Persistence;
 
 namespace MovieStar.Infra.Data.Repositories
@@ -50,17 +50,16 @@ namespace MovieStar.Infra.Data.Repositories
                  ConfigureAwait(false);
         }
 
-        public async Task<IEnumerable<Serie>> GetAllRangeAsync(int index)
+        public async Task<IEnumerable<Serie>> GetAllRangeAsync(int skip, int take)
         {
-            const int pageSize = 10;
             return await _context.Series.
                 AsNoTracking().
                 Include(i => i.Genero).
                 Include(i => i.Elenco).
                 Include(i => i.Avaliacoes).
                 Include(i => i.Temporada).
-                Skip(index * pageSize).
-                Take(pageSize).
+                Skip(skip).
+                Take(take).
                 ToListAsync().
                 ConfigureAwait(false);
         }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MovieStar.Domain.Entities;
-using MovieStar.Domain.Interfaces;
+using MovieStar.Domain.Repositories;
 using MovieStar.Infra.Data.Persistence;
 
 namespace MovieStar.Infra.Data.Repositories
@@ -13,35 +13,32 @@ namespace MovieStar.Infra.Data.Repositories
         {
             _context = context;
         }
-        public async Task<Usuario> GetByEmailAsync(string email)
+        public async Task<Usuario?> GetByEmailAsync(string email)
         {
             return await _context.Usuarios.FirstOrDefaultAsync( item => item.Email == email);
         }
 
-        public async Task<IEnumerable<Usuario>> GetAllAsync()
+        public async Task<IEnumerable<Usuario>?> GetAllAsync()
         {
             return await _context.Usuarios.ToListAsync();
         }
 
-        public async Task<Usuario> AddAsync(Usuario usuario)
+        public async Task AddAsync(Usuario usuario)
         {
             _context.Add(usuario);
             await _context.SaveChangesAsync();
-            return usuario;
         }
 
-        public async Task<Usuario> UpdateAsync(Usuario usuario)
+        public async Task UpdateAsync(Usuario usuario)
         {
             _context.Update(usuario);
             await _context.SaveChangesAsync();
-            return usuario;
         }
 
-        public async Task<Usuario> DeleteAsync(Usuario usuario)
+        public async Task DeleteAsync(Usuario usuario)
         {
             _context.Remove(usuario);
             await _context.SaveChangesAsync();
-            return usuario;
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public sealed record AvaliacaoSerieResponse(
         Guid AvaliacaoId,
-        Guid UsuarioId,
+        UsuarioResponse UsuarioId,
         string Comentario,
         int Nota,
         DateTime DataAvaliacao,

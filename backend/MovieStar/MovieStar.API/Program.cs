@@ -1,25 +1,20 @@
+using MovieStar.API.Configurations;
+using MovieStar.Infra.Ioc;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+// - Serviços de documentação da API com Swagger
+builder.Services.AddSwaggerConfiguration();
+
+// - Inversão de Controle
+builder.Services.AddMovieStarInfra(builder.Configuration);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+// - Configuração da aplicação
+app.AddApplicationConfiguration();
 
 app.Run();

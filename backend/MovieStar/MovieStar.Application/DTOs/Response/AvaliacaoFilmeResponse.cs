@@ -2,7 +2,7 @@
 {
     public sealed record AvaliacaoFilmeResponse(
         Guid AvaliacaoId,
-        Guid UsuarioId,
+        UsuarioResponse Usuario,
         string Comentario,
         int Nota,
         DateTime DataAvaliacao,

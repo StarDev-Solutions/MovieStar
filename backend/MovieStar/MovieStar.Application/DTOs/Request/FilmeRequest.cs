@@ -14,6 +14,7 @@ namespace MovieStar.Application.DTOs.Request
         List<PersonagemRequest> Elenco,
         [Range(1, int.MaxValue, ErrorMessage = "A duração do filme deve ser maior que zero.")]
         int Duracao,
+        double? Classificacao,
         byte[]? Imagem,
         [Required(ErrorMessage = "A origem do filme é obrigatória.")]
         string Origem,

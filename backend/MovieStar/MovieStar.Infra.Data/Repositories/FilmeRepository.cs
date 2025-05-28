@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MovieStar.Domain.Entities;
-using MovieStar.Domain.Interfaces;
+using MovieStar.Domain.Repositories;
 using MovieStar.Infra.Data.Persistence;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -48,16 +48,16 @@ namespace MovieStar.Infra.Data.Repositories
                  ConfigureAwait(false);
         }
 
-        public async Task<IEnumerable<Filme>> GetAllRangeAsync(int index)
+        public async Task<IEnumerable<Filme>> GetAllRangeAsync(int skip, int take)
         {
-            const int pageSize = 10;
             return await _context.Filmes.
                 AsNoTracking().
                 Include(i => i.Genero).
                 Include(i => i.Elenco).
                 Include(i => i.Avaliacoes).
-                Skip(index * pageSize).
-                Take(pageSize).
+                Skip(skip).
+                Take(take).
+                OrderBy(f=>f.Nome).
                 ToListAsync().
                 ConfigureAwait(false);
         }
