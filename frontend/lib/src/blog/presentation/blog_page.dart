@@ -83,7 +83,6 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
                       separatorBuilder: (_, _) => SizedBox(height: 20),
                       itemCount: _blogController.artigos.length,
                       itemBuilder: (_, index) {
-
                       return TweenAnimationBuilder(
                         tween: Tween(begin: Offset(1, 0), end: Offset.zero),
                         duration: Duration(milliseconds: 300),

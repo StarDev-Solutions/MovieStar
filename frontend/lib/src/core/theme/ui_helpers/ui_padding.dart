@@ -20,7 +20,7 @@ class UIPadding extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: useHorizontalPadding ? (Device.orientation == Orientation.portrait ? Theme.of(context).columnSize * 0.5 : Theme.of(context).columnSize * 1.5) : 0,
-        vertical: useVerticalPadding ? Theme.of(context).rowSize * 0.5 : 0,
+        vertical: useVerticalPadding ? Theme.of(context).rowSize : 0,
       ),
       child: child,
     );

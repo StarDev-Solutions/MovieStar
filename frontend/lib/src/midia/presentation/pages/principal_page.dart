@@ -151,14 +151,14 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                                         ),
                                       ),
                                     )
-                                    : controller.filmesPopulares.map((e) {
+                                    : controller.filmesPopulares.map((movie) {
                                       return TweenAnimationBuilder<Offset>(
                                         duration: Duration(milliseconds: 600),
                                         tween: Tween(begin: Offset(1, 0), end: Offset.zero),
                                         builder: (context, value, child) {
                                           return Transform.translate(
                                             offset: value,
-                                            child: BoxCatalogoMidia(movie: e),
+                                            child: BoxCatalogoMidia(movie: movie),
                                           );
                                         }
                                       );

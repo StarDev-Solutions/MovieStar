@@ -5,7 +5,7 @@ import 'package:moviestar/src/autenticacao/presentation/pages/widgets/box_campo_
 import 'package:moviestar/src/core/route.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/box_botao_primario.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_botao_primario.dart';
 
 class AutenticacaoPage extends StatefulWidget {
   const AutenticacaoPage({super.key});

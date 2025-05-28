@@ -12,7 +12,7 @@ class BoxCardArtigo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: bottomNavBackgroundColor,
+        color: colorBottomNavBackground,
         borderRadius: BorderRadius.circular(20.s),
       ),
       child: Column(

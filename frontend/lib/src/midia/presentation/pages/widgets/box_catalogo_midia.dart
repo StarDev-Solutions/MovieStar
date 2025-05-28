@@ -23,7 +23,11 @@ class BoxCatalogoMidia extends StatelessWidget {
             ),
           ),
         ),
-        UIText.contentTitle(movie.title, maxLines: 2, textAlign: TextAlign.center,),
+        UIText.contentTitle(
+          movie.title,
+          maxLines: 2,
+          textAlign: TextAlign.center,
+        ),
         Text(formatDate(movie.releaseDate), style: releaseDateStyle, maxLines: 1),
       ],
     );
