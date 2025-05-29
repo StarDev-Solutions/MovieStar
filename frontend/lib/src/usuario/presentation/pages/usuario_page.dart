@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:moviestar/src/usuario/presentation/pages/widgets/box_cartaz_midia.dart';
@@ -19,7 +18,6 @@ class _UsuarioPageState extends State<UsuarioPage> {
       body: SingleChildScrollView(
         child: UIPadding(
           useVerticalPadding: true,
-          // useHorizontalPadding: true,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -54,7 +52,9 @@ class _UsuarioPageState extends State<UsuarioPage> {
                 height: 150.s,
                 child: Visibility(
                   visible: false,
-                  replacement: Center(child: Lottie.asset('assets/lotties/empty.json')),
+                  replacement: Center(
+                    child: Image.asset('assets/images/empty.png'),
+                  ),
                   child: CarouselView(
                     itemExtent: 200,
                     children: [
@@ -83,9 +83,19 @@ class _UsuarioPageState extends State<UsuarioPage> {
                   padding: getPaddingHorizontal(context),
                   separatorBuilder: (context, index) => SizedBox(width: 10),
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: 100,
                   itemBuilder: (_, index) {
-                    return BoxCartazMidia(cartaz: '');
+                    return TweenAnimationBuilder<Offset>(
+                      duration: Duration(milliseconds: 300),
+                      tween: Tween(begin: Offset(0, -1), end: Offset.zero),
+                      builder: (context, value, child) {
+                        return Transform.translate(
+                          offset: Offset(0, value.dy * 100),
+                          child: child,
+                        );
+                      },
+                      child: BoxCartazMidia(cartaz: ''),
+                    );
                   },
                 ),
               ),
@@ -101,12 +111,23 @@ class _UsuarioPageState extends State<UsuarioPage> {
                   padding: getPaddingHorizontal(context),
                   separatorBuilder: (context, index) => SizedBox(width: 10),
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: 100,
                   itemBuilder: (_, index) {
-                    return BoxCartazMidia(cartaz: '');
+                    return TweenAnimationBuilder<Offset>(
+                      tween: Tween(begin: Offset(0, 1), end: Offset.zero),
+                      duration: Duration(milliseconds: 300),
+                      builder: (context, offset, child) {
+                        return Transform.translate(
+                          offset: Offset(0, offset.dy * 100),
+                          child: child,
+                        );
+                      },
+                      child: BoxCartazMidia(cartaz: ''),
+                    );
                   },
                 ),
               ),
+              SizedBox(height: 30.s),
             ],
           ),
         ),
