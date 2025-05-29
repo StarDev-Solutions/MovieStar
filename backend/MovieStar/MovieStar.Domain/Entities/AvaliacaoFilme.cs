@@ -7,7 +7,7 @@
 
         private AvaliacaoFilme() : base() { }
 
-        public AvaliacaoFilme(Guid usuarioId, Guid filmeId, string comentario, int nota)
+        public AvaliacaoFilme(Guid usuarioId, Guid filmeId, string comentario, double nota)
             : base(usuarioId, comentario, nota)
         {
             FilmeId = filmeId;

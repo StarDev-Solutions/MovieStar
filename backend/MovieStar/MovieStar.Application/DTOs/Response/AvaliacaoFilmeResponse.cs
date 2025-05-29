@@ -2,9 +2,9 @@
 {
     public sealed record AvaliacaoFilmeResponse(
         Guid AvaliacaoId,
-        UsuarioResponse Usuario,
+        Guid UsuarioId,
         string Comentario,
         double Nota,
         DateTime DataAvaliacao,
-        FilmeResponse Serie);
+        Guid FilmeId);
 }

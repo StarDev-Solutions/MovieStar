@@ -10,7 +10,7 @@
         #region Construtor
         private AvaliacaoSerie() : base() { }
 
-        public AvaliacaoSerie(Guid usuarioId, Guid serieId, string comentario, int nota) : base(usuarioId, comentario, nota)
+        public AvaliacaoSerie(Guid usuarioId, Guid serieId, string comentario, double nota) : base(usuarioId, comentario, nota)
         {
             SerieId = serieId;
         }

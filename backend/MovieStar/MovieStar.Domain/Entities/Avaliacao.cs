@@ -10,7 +10,7 @@ namespace MovieStar.Domain.Entities
         public double Nota { get; private set; }
         public DateTime DataAvaliacao { get; private set; }
         protected Avaliacao() : base(Guid.NewGuid()) { }
-        protected Avaliacao(Guid usuarioId, string comentario, int nota) : base(Guid.NewGuid())
+        protected Avaliacao(Guid usuarioId, string comentario, double nota) : base(Guid.NewGuid())
         {
             UsuarioId = usuarioId;
             Comentario = comentario;
@@ -22,7 +22,7 @@ namespace MovieStar.Domain.Entities
         {
             Comentario = comentario;
         }
-        public void AtualizarNota(int nota)
+        public void AtualizarNota(double nota)
         {
             Nota = nota;
         }
