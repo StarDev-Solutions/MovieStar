@@ -28,7 +28,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
   late Animation<Offset> _offsetLtoR;
   late Animation<Offset> _offsetRtoL;
 
-  final MidiaController _mediaController = Get.find<MidiaController>();
+  final MidiaController _midiaController = Get.find<MidiaController>();
 
   @override
   void initState() {
@@ -55,7 +55,10 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
     _animationController.forward();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // await _mediaController.getTrendingMovies();
+      await Future.wait([
+        _midiaController.buscarFilmes(numeroPagina: 1),
+        _midiaController.buscarSeries(numeroPagina: 1),
+      ]);
     });
 
     super.initState();
@@ -105,11 +108,11 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                 children: [
                   SlideTransition(
                     position: _offsetLtoR,
-                    child: BoxCategoriaFilme(),
+                    child: BoxCategoriaFilme(filmes: _midiaController.filmesPopulares.length),
                   ),
                   SlideTransition(
                     position: _offsetRtoL,
-                    child: BoxCategoriaSerie(),
+                    child: BoxCategoriaSerie(series: _midiaController.seriesPopulares.length),
                   ),
                 ],
               ),
@@ -125,10 +128,9 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                     ),
                   ),
                   SizedBox(height: 20),
-                  GetBuilder<MidiaController>(
-                    builder: (controller) {
+                  Obx(() {
                       return Skeletonizer(
-                        enabled: controller.state == NotifierState.loading,
+                        enabled: _midiaController.state == NotifierState.loading,
                         child: SizedBox(
                           height: 220.s,
                           child: CarouselView.weighted(
@@ -138,7 +140,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                             flexWeights: [2, 3, 3, 2],
                             itemSnapping: true,
                             children:
-                                controller.state == NotifierState.loading
+                                _midiaController.state == NotifierState.loading
                                     ? List.generate(
                                       4,
                                       (index) => Skeleton.leaf(
@@ -151,14 +153,14 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                                         ),
                                       ),
                                     )
-                                    : controller.filmesPopulares.map((movie) {
+                                    : _midiaController.midiasPopulares.map((midia) {
                                       return TweenAnimationBuilder<Offset>(
                                         duration: Duration(milliseconds: 600),
                                         tween: Tween(begin: Offset(1, 0), end: Offset.zero),
                                         builder: (context, value, child) {
                                           return Transform.translate(
                                             offset: value,
-                                            child: BoxCatalogoMidia(movie: movie),
+                                            child: BoxCatalogoMidia(midia: midia),
                                           );
                                         }
                                       );
@@ -177,5 +179,5 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
     );
   }
 
-  void selectMovie(Midia movie) => _mediaController.selecionarMidia(movie);
+  void selectMovie(Midia movie) => _midiaController.selecionarMidia(movie);
 }

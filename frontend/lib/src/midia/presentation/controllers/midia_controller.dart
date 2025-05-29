@@ -1,20 +1,60 @@
 import 'package:get/get.dart';
+import 'package:moviestar/src/midia/data/repositories/midia_repository.dart';
 import 'package:moviestar/src/midia/domain/entities/midia.dart';
 import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 
-///TODO: Criar objeto de midia para substituir o de [Midia].
 class MidiaController extends GetxController {
+  final MidiaRepository repositorio = Get.find<MidiaRepository>();
+
   final Rx<NotifierState> _state = Rx(NotifierState.initial);
   NotifierState get state => _state.value;
 
-  final RxList<Midia> _filmesPopulares = <Midia>[].obs;
-  List<Midia> get filmesPopulares => _filmesPopulares;
+  final RxList<Filme> _filmesPopulares = <Filme>[].obs;
+  List<Filme> get filmesPopulares => _filmesPopulares;
   
-  final RxList<Midia> _seriesPopulares = <Midia>[].obs;
-  List<Midia> get seriesPopulares => _seriesPopulares;
+  final RxList<Serie> _seriesPopulares = <Serie>[].obs;
+  List<Serie> get seriesPopulares => _seriesPopulares;
+
+  List<Midia> get midiasPopulares => [..._filmesPopulares, ..._seriesPopulares];
 
   Midia? _midiaSelecionada;
   Midia? get midiaSelecionada => _midiaSelecionada;
   
   void selecionarMidia(Midia midia) => _midiaSelecionada = midia;
+
+  Future<String> buscarFilmes({required int numeroPagina}) async {
+    String? mensagemErro;
+    _state.value = NotifierState.loading;
+
+    final result = await repositorio.buscarFilmes(numeroPagina: numeroPagina);
+
+    result.fold((left) {
+      _state.value = NotifierState.failure;
+      mensagemErro = left.message;
+    }, (right) {
+        _state.value = NotifierState.loaded;
+        _filmesPopulares.value = right;
+      },
+    );
+    
+    return mensagemErro ?? '';
+  }
+
+  Future<String> buscarSeries({required int numeroPagina}) async {
+    String? mensagemErro;
+    _state.value = NotifierState.loading;
+
+    final result = await repositorio.buscarSeries(numeroPagina: numeroPagina);
+
+    result.fold((left) {
+      _state.value = NotifierState.failure;
+      mensagemErro = left.message;
+    }, (right) {
+        _state.value = NotifierState.loaded;
+        _seriesPopulares.value = right;
+      },
+    );
+    
+    return mensagemErro ?? '';
+  }
 }

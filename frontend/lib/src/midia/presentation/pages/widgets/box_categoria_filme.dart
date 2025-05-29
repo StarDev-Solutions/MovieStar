@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
 class BoxCategoriaFilme extends StatelessWidget {
-  const BoxCategoriaFilme({super.key});
+  final int filmes;
+
+  const BoxCategoriaFilme({super.key, required this.filmes});
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +31,10 @@ class BoxCategoriaFilme extends StatelessWidget {
           Positioned(
             right: 10,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                UIText.categoryLabel('Movies'),
-                UIText.quantityTitlesLabel('532 Titles'),
+                UIText.categoryLabel('Filmes'),
+                UIText.quantityTitlesLabel('$filmes'),
               ],
             ),
           ),

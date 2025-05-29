@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:moviestar/src/autenticacao/presentation/controllers/autenticacao_controller.dart';
+import 'package:moviestar/src/midia/data/repositories/midia_repository.dart';
 import 'package:moviestar/src/midia/presentation/controllers/midia_controller.dart';
 import 'package:moviestar/src/blog/data/repositories/blog_repository.dart';
 import 'package:moviestar/src/blog/presentation/controllers/blog_controller.dart';
@@ -44,6 +45,7 @@ class _MainAppState extends State<MainApp> {
                 Get.put(Dio());
                 Get.put(AutenticacaoController());
                 Get.lazyPut(() => MidiaController());
+                Get.lazyPut(() => MidiaRepository());
                 Get.lazyPut(() => BlogRepository());
                 Get.lazyPut(() => BlogController());
               }),
