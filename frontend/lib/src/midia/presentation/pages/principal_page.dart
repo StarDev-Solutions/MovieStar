@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/route.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:moviestar/src/midia/domain/entities/movie.dart';
+import 'package:moviestar/src/midia/domain/entities/midia.dart';
 import 'package:moviestar/src/midia/presentation/controllers/midia_controller.dart';
 import 'package:moviestar/src/midia/presentation/pages/widgets/box_categoria_serie.dart';
 import 'package:moviestar/src/midia/presentation/pages/widgets/box_catalogo_midia.dart';
@@ -70,14 +70,14 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(top: 45.s),
+      body: UIPadding(
+        useVerticalPadding: true,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.all(20),
+              UIPadding(
+                useHorizontalPadding: true,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -91,7 +91,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                         sugestaoSelecionada: selectMovie,
                       ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 30.s),
                     FadeTransition(
                       opacity: _opacityAnimation,
                       child: Text('Categorias', style: labelStyle),
@@ -117,8 +117,8 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.s),
+                  UIPadding(
+                    useHorizontalPadding: true,
                     child: FadeTransition(
                       opacity: _opacityAnimation,
                       child: Text('Populares', style: labelStyle),
@@ -177,5 +177,5 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
     );
   }
 
-  void selectMovie(Filme movie) => _mediaController.selecionarMidia(movie);
+  void selectMovie(Midia movie) => _mediaController.selecionarMidia(movie);
 }

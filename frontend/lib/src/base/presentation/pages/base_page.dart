@@ -6,7 +6,8 @@ import 'package:moviestar/src/base/presentation/pages/widgets/box_barra_selecao_
 import 'package:moviestar/src/blog/presentation/blog_page.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
-import 'package:moviestar/src/midia/presentation/pages/usuario_page.dart';
+import 'package:moviestar/src/usuario/presentation/pages/historico_avaliacao_page.dart';
+import 'package:moviestar/src/usuario/presentation/pages/usuario_page.dart';
 import 'package:rive/rive.dart' as r;
 
 class BasePage extends StatefulWidget {
@@ -43,7 +44,7 @@ class _BasePageState extends State<BasePage> with SingleTickerProviderStateMixin
             children: [
               PrincipalPage(),
               BlogPage(),
-              PrincipalPage(),
+              HistoricoAvaliacaoPage(),
               UsuarioPage(),
             ],
           ),

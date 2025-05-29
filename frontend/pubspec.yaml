@@ -19,6 +19,8 @@ dependencies:
   flutter_native_splash: ^2.4.5
   dartz: ^0.10.1
   equatable: ^2.0.7
+  flutter_rating_bar: ^4.0.1
+  lottie: ^3.3.1
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +43,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
+    - assets/lotties/
     - assets/rive/
     - assets/splash/
 

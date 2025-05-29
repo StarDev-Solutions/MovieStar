@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:moviestar/src/midia/domain/entities/movie.dart';
+import 'package:moviestar/src/midia/domain/entities/midia.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:intl/intl.dart';
 
 class BoxCatalogoMidia extends StatelessWidget {
-  final Filme movie;
+  final Midia movie;
   const BoxCatalogoMidia({super.key, required this.movie});
 
   @override
@@ -17,24 +17,24 @@ class BoxCatalogoMidia extends StatelessWidget {
             tag: movie.id,
             child: FadeInImage.assetNetwork(
               placeholder: 'assets/images/placeholder_midia.png',
-              image: 'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+              image: 'https://image.tmdb.org/t/p/w500${movie.cartaz}',
               width: 100,
               fit: BoxFit.contain,
             ),
           ),
         ),
         UIText.contentTitle(
-          movie.title,
+          movie.titulo,
           maxLines: 2,
           textAlign: TextAlign.center,
         ),
-        Text(formatDate(movie.releaseDate), style: releaseDateStyle, maxLines: 1),
+        Text(dateTimeToDate(movie.dataLancamento), style: releaseDateStyle, maxLines: 1),
       ],
     );
   }
 
-  String formatDate(String date) {
+  String dateTimeToDate(DateTime date) {
     // initializeDateFormatting('pt_BR', null);
-    return DateFormat('dd/MM/yyyy').format(DateTime.parse(date));
+    return DateFormat('dd/MM/yyyy').format(date);
   }
 }

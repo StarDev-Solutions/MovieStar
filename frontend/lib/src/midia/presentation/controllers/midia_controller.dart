@@ -1,20 +1,20 @@
 import 'package:get/get.dart';
-import 'package:moviestar/src/midia/domain/entities/movie.dart';
+import 'package:moviestar/src/midia/domain/entities/midia.dart';
 import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 
-///TODO: Criar objeto de midia para substituir o de [Filme].
+///TODO: Criar objeto de midia para substituir o de [Midia].
 class MidiaController extends GetxController {
   final Rx<NotifierState> _state = Rx(NotifierState.initial);
   NotifierState get state => _state.value;
 
-  final RxList<Filme> _filmesPopulares = <Filme>[].obs;
-  List<Filme> get filmesPopulares => _filmesPopulares;
+  final RxList<Midia> _filmesPopulares = <Midia>[].obs;
+  List<Midia> get filmesPopulares => _filmesPopulares;
   
-  final RxList<Filme> _seriesPopulares = <Filme>[].obs;
-  List<Filme> get seriesPopulares => _seriesPopulares;
+  final RxList<Midia> _seriesPopulares = <Midia>[].obs;
+  List<Midia> get seriesPopulares => _seriesPopulares;
 
-  Filme? _midiaSelecionada;
-  Filme? get midiaSelecionada => _midiaSelecionada;
+  Midia? _midiaSelecionada;
+  Midia? get midiaSelecionada => _midiaSelecionada;
   
-  void selecionarMidia(Filme midia) => _midiaSelecionada = midia;
+  void selecionarMidia(Midia midia) => _midiaSelecionada = midia;
 }

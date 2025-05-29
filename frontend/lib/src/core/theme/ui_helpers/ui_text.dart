@@ -9,6 +9,7 @@ class UIText extends StatelessWidget {
   final TextAlign? textAlign; 
 
   UIText.label(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = labelStyle;
+  UIText.label2(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = labelStyle2;
   UIText.labelTextField(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = labelTextFieldStyle;
   
   UIText.categoryLabel(this.text, {super.key, this.textOverflow, this.maxLines, this.textAlign}) : style = categoryLabelStyle;

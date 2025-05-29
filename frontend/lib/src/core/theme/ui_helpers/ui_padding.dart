@@ -19,13 +19,16 @@ class UIPadding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: useHorizontalPadding ? (Device.orientation == Orientation.portrait ? Theme.of(context).columnSize * 0.5 : Theme.of(context).columnSize * 1.5) : 0,
-        vertical: useVerticalPadding ? Theme.of(context).rowSize : 0,
+        horizontal: useHorizontalPadding ? (Device.orientation == Orientation.portrait ? Theme.of(context).columnSize : Theme.of(context).columnSize * 1.5) : 0,
+        vertical: useVerticalPadding ? Theme.of(context).rowSize * 1.2 : 0,
       ),
       child: child,
     );
   }
 }
+
+///Método que disponibiliza um padding para o axis horizontal
+EdgeInsets getPaddingHorizontal(BuildContext context) => EdgeInsets.symmetric(horizontal: (Device.orientation == Orientation.portrait ? Theme.of(context).columnSize : Theme.of(context).columnSize * 1.5));
 
 ///Cria um padding para o sliver, seguindo a regra do aplicativo
 class UIPaddingSliver extends SliverPadding {

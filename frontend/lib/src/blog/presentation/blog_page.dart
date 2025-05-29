@@ -57,8 +57,9 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(top: 45.s, left: 20.s, right: 20.s),
+      body: UIPadding(
+        useVerticalPadding: true,
+        useHorizontalPadding: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
