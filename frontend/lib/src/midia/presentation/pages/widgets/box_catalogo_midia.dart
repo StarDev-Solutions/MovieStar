@@ -30,7 +30,7 @@ class BoxCatalogoMidia extends StatelessWidget {
           maxLines: 2,
           textAlign: TextAlign.center,
         ),
-        Text(dateTimeToDate(midia.dataLancamento), style: releaseDateStyle, maxLines: 1),
+        Text(dateTimeToDate(midia.dataLancamento), style: dataLancamentoStyle, maxLines: 1),
       ],
     );
   }

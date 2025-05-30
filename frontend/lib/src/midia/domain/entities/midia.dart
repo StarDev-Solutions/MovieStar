@@ -8,7 +8,7 @@ sealed class Midia extends Equatable {
   final DateTime dataLancamento;
   final num nota;
   
-   const Midia({
+  const Midia({
     required this.id,
     required this.titulo,
     required this.sinopse,

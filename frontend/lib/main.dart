@@ -44,8 +44,8 @@ class _MainAppState extends State<MainApp> {
               initialBinding: BindingsBuilder(() {
                 Get.put(Dio());
                 Get.put(AutenticacaoController());
-                Get.lazyPut(() => MidiaController());
                 Get.lazyPut(() => MidiaRepository());
+                Get.lazyPut(() => MidiaController());
                 Get.lazyPut(() => BlogRepository());
                 Get.lazyPut(() => BlogController());
               }),

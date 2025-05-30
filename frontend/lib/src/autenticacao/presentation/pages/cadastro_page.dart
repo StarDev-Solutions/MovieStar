@@ -77,7 +77,7 @@ class _CadastroPageState extends State<CadastroPage> {
                         text: 'Cadastrar',
                         onPressed: () => _autenticacaoController.cadastrar(),
                       ),
-                      TextButton(onPressed: () => Get.back(), child: UIText.releaseDate('Já tem uma conta? Entre'))
+                      TextButton(onPressed: () => Get.back(), child: UIText.labelUsuarios('Já tem uma conta? Entre'))
                     ],
                   )
                 ),

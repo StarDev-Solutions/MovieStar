@@ -13,6 +13,7 @@ class MidiaRepository extends BaseRepository implements IMidiaRepository {
   MidiaRepository() {
     configureDio(Get.find<Dio>());
   }
+  
   @override
   Future<Either<Failure, List<Filme>>> buscarFilmes({required int numeroPagina}) async {
     try {

@@ -65,7 +65,7 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
                         text: 'Entrar',
                         onPressed: () => _autenticacaoController.entrar(),
                       ),
-                      TextButton(onPressed: () => Get.toNamed(Routes.cadastroRoute), child: UIText.releaseDate('Não tem uma conta? Cadastre-se'))
+                      TextButton(onPressed: () => Get.toNamed(Routes.cadastroRoute), child: UIText.labelUsuarios('Não tem uma conta? Cadastre-se'))
                     ],
                   )
                 ),

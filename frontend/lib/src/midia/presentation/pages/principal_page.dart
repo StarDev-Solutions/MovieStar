@@ -28,11 +28,12 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
   late Animation<Offset> _offsetLtoR;
   late Animation<Offset> _offsetRtoL;
 
-  final MidiaController _midiaController = Get.find<MidiaController>();
+  late MidiaController _midiaController;
 
   @override
   void initState() {
     _carouselController = CarouselController(initialItem: 1);
+    _midiaController = Get.find<MidiaController>();
     focusNode = FocusNode();
     _animationController = AnimationController(
       duration: Duration(milliseconds: 700),
@@ -90,8 +91,8 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                       position: _offsetTtoB,
                       child: BoxBuscaMidia(
                         searchFocusNode: focusNode,
-                        midia: Get.find<MidiaController>().filmesPopulares,
-                        sugestaoSelecionada: selectMovie,
+                        midia: _midiaController.filmesPopulares,
+                        sugestaoSelecionada: _selecionarMidia,
                       ),
                     ),
                     SizedBox(height: 30.s),
@@ -136,7 +137,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                           child: CarouselView.weighted(
                             controller: _carouselController,
                             enableSplash: false,
-                            onTap: (_) => Get.toNamed(Routes.detalheRoute),
+                            onTap: (index) => _selecionarMidia(_midiaController.midiasPopulares[index]),
                             flexWeights: [2, 3, 3, 2],
                             itemSnapping: true,
                             children:
@@ -179,5 +180,8 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
     );
   }
 
-  void selectMovie(Midia movie) => _midiaController.selecionarMidia(movie);
+  void _selecionarMidia(Midia midia) {
+    _midiaController.selecionarMidia(midia);
+    Get.toNamed(Routes.detalheRoute);
+  }
 }
