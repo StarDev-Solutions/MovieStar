@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 class BoxBotaoPrimario extends StatelessWidget {
   final String text;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 TextStyle get tituloMediaStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 21.s3, fontWeight: FontWeight.w600, decoration: TextDecoration.none);
 TextStyle get labelStyle => TextStyle(fontFamily: 'Axiforma', fontSize: 16.s3, fontWeight: FontWeight.w400, decoration: TextDecoration.none);

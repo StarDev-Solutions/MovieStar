@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:moviestar/src/usuario/presentation/pages/widgets/box_cartaz_midia.dart';
 import 'package:moviestar/src/usuario/presentation/pages/widgets/box_perfil_usuario.dart';
 

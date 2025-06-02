@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:moviestar/src/core/utils/formatter.dart';
 import 'package:rive/rive.dart';
 import 'package:skeletonizer/skeletonizer.dart';

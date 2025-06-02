@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 ///Classe responsavel por criar um TextField customizado.
 class BoxCampoTexto extends StatefulWidget {
@@ -129,7 +128,7 @@ class _BoxCampoTextoState extends State<BoxCampoTexto> {
                   onTap: widget.onPressedSuffixIcon,
                   child: Icon(
                     widget.suffixIcon,
-                    color: colorLabelOnPrimary.withOpacity(0.2),
+                    color: colorLabelOnPrimary.withValues(alpha: 0.2),
                   ),
                 ),
           suffixIconConstraints: widget.isPassword || widget.enableButtonCleanValue || widget.suffixIcon != null ? BoxConstraints.tight(Size(60.s2, 25.s2)) : BoxConstraints.tight(const Size(20, 0)),

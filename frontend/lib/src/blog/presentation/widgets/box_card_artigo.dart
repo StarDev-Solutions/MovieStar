@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 class BoxCardArtigo extends StatelessWidget {
   final Artigo artigo;

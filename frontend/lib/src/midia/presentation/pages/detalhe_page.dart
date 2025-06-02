@@ -29,6 +29,10 @@ class _DetalhePageState extends State<DetalhePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Stack(
@@ -57,7 +61,6 @@ class _DetalhePageState extends State<DetalhePage> {
                   ),
                 ),
               ),
-
               Column(
                 children: [
                   SizedBox(height: Theme.of(context).rowSize * 1.2),

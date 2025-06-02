@@ -3,7 +3,6 @@ import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:moviestar/src/blog/presentation/controllers/blog_controller.dart';
 import 'package:moviestar/src/blog/presentation/widgets/box_card_artigo.dart';
 import 'package:moviestar/src/blog/presentation/widgets/box_busca_artigo.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';

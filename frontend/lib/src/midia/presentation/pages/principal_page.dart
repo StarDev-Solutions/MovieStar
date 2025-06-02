@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/route.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:moviestar/src/midia/domain/entities/midia.dart';
 import 'package:moviestar/src/midia/presentation/controllers/midia_controller.dart';
@@ -27,7 +26,6 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
   late Animation<Offset> _offsetTtoB;
   late Animation<Offset> _offsetLtoR;
   late Animation<Offset> _offsetRtoL;
-
   late MidiaController _midiaController;
 
   @override
@@ -61,7 +59,6 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
         _midiaController.buscarSeries(numeroPagina: 1),
       ]);
     });
-
     super.initState();
   }
 
@@ -103,21 +100,24 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Row(
-                spacing: 10,
-                children: [
-                  SlideTransition(
-                    position: _offsetLtoR,
-                    child: BoxCategoriaFilme(filmes: _midiaController.filmesPopulares.length),
-                  ),
-                  SlideTransition(
-                    position: _offsetRtoL,
-                    child: BoxCategoriaSerie(series: _midiaController.seriesPopulares.length),
-                  ),
-                ],
+              SizedBox(height: 15.s),
+              Obx(() {
+                  return Row(
+                    spacing: 10,
+                    children: [
+                      SlideTransition(
+                        position: _offsetLtoR,
+                        child: BoxCategoriaFilme(filmes: _midiaController.filmesPopulares.length),
+                      ),
+                      SlideTransition(
+                        position: _offsetRtoL,
+                        child: BoxCategoriaSerie(series: _midiaController.seriesPopulares.length),
+                      ),
+                    ],
+                  );
+                }
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 15.s),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -128,7 +128,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                       child: Text('Populares', style: labelStyle),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 15.s),
                   Obx(() {
                       return Skeletonizer(
                         enabled: _midiaController.state == NotifierState.loading,
