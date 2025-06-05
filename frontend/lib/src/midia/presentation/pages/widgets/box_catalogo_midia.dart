@@ -36,7 +36,6 @@ class BoxCatalogoMidia extends StatelessWidget {
   }
 
   String dateTimeToDate(DateTime date) {
-    // initializeDateFormatting('pt_BR', null);
     return DateFormat('dd/MM/yyyy').format(date);
   }
 }

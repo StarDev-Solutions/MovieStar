@@ -17,7 +17,7 @@ class BoxBotaoPrimario extends StatelessWidget {
           gradient: const LinearGradient(
             colors: [colorPrimary, colorSecondary],
           ),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
               color: colorPrimary.withValues(alpha: 0.4),
@@ -37,8 +37,8 @@ class BoxBotaoPrimario extends StatelessWidget {
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            padding: EdgeInsets.symmetric(horizontal: 16.s2, vertical: 10.s2),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.s3)),
+            padding: EdgeInsets.symmetric(horizontal: 16.s3, vertical: 10.s3),
           ),
           child: UIText.primaryButtonStyle(text),
         ),

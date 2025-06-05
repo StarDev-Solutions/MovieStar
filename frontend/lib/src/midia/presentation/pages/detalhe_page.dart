@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:moviestar/src/base/data/mock/mock_data.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_icone.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/utils/formatter.dart';
 import 'package:moviestar/src/midia/domain/entities/midia.dart';
@@ -32,6 +33,8 @@ class _DetalhePageState extends State<DetalhePage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        leading: IconButton(onPressed: () => Get.back(), icon: BoxIcone(icone: Icons.arrow_back)),
+        surfaceTintColor: Colors.transparent,
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -42,9 +45,7 @@ class _DetalhePageState extends State<DetalhePage> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: MemoryImage(
-                      Formatter.imagemBase64(_midiaSelecionada.cartaz)!,
-                    ),
+                    image: MemoryImage(Formatter.imagemBase64(_midiaSelecionada.cartaz)!),
                   ),
                 ),
                 child: Container(
@@ -61,93 +62,97 @@ class _DetalhePageState extends State<DetalhePage> {
                   ),
                 ),
               ),
-              Column(
+              SingleChildScrollView(
+              child: Column(
                 children: [
-                  SizedBox(height: Theme.of(context).rowSize * 1.2),
-                  UIPadding(
-                    useHorizontalPadding: true,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                SizedBox(height: Theme.of(context).rowSize * 1.2),
+                UIPadding(
+                  useHorizontalPadding: true,
+                  child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                    spacing: 15.s,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Hero(
+                      tag: _midiaSelecionada.id,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.memory(
+                        height: 250.s5,
+                        Formatter.imagemBase64(_midiaSelecionada.cartaz)!,
+                        ),
+                      ),
+                      ),
+                      Row(
+                      spacing: 10.s,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Column(
-                          spacing: 15.s,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Hero(
-                              tag: _midiaSelecionada.id,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.memory(
-                                  height: 250.s2,
-                                  Formatter.imagemBase64(_midiaSelecionada.cartaz)!,
-                                ),
-                              ),
-                            ),
-                            Row(
-                              spacing: 10.s,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  spacing: 2.s,
-                                  children: [
-                                    Icon(Icons.calendar_month, size: 21.s, color: colorHint),
-                                    UIText.dataLancamento('${_midiaSelecionada.dataLancamento.year}'),
-                                  ],
-                                ),
-                                UIText.dataLancamento('|'),
-                                Row(
-                                  spacing: 2.s,
-                                  children: [
-                                    Icon(Icons.access_time_filled_sharp, size: 21.s, color: colorHint),
-                                    UIText.dataLancamento('144 minutos'),
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 15.s),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(child: UIText.tituloMedia(_midiaSelecionada.titulo)),
-                            Column(
-                              spacing: 4.s,
-                              children: [
-                                RatingBarIndicator(
-                                  rating: _midiaSelecionada.nota.toDouble(),
-                                  itemBuilder: (context, index) => Icon(Icons.star, color: Colors.amber),
-                                  itemCount: 5,
-                                  itemSize: 18.s,
-                                ),
-                                UIText.labelUsuarios('Por 300 usuários')
-                              ],
-                            ),
-                          ],
+                        spacing: 2.s,
+                        children: [
+                          BoxIcone(icone: Icons.calendar_month, tamanho: 21.s, cor: colorHint),
+                          UIText.dataLancamento('${_midiaSelecionada.dataLancamento.year}'),
+                        ],
                         ),
-                        SizedBox(height: 15.s),
-                        UIText.sinopse(_midiaSelecionada.sinopse, maxLines: 5),
-                        SizedBox(height: 15.s),
-                        UIText.label('Elenco'),
-                        SizedBox(height: 15.s),
+                        UIText.dataLancamento('|'),
+                        Row(
+                        spacing: 2.s,
+                        children: [
+                          BoxIcone(icone: Icons.access_time_filled_sharp, tamanho: 21.s, cor: colorHint),
+                          UIText.dataLancamento('144 minutos'),
+                        ],
+                        ),
                       ],
+                      )
+                    ],
                     ),
-                  ),
-                  Flexible(
-                    child: ListView.builder(
-                      padding: getPaddingHorizontal(context),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      itemBuilder: (context, index) {
-                        return BoxElenco(
-                          imagem: base64,
-                          nome: 'Andiamo Pirgoretti',
-                          personagem: 'Morbius',
-                        );
-                      },
+                    SizedBox(height: 15.s),
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(child: UIText.tituloMedia(_midiaSelecionada.titulo)),
+                      Column(
+                      spacing: 4.s,
+                      children: [
+                        RatingBarIndicator(
+                        rating: _midiaSelecionada.nota.toDouble(),
+                        itemBuilder: (context, index) => BoxIcone(icone: Icons.star, cor: Colors.amber),
+                        itemCount: 5,
+                        itemSize: 18.s,
+                        ),
+                        UIText.labelUsuarios('Por 300 usuários')
+                      ],
+                      ),
+                    ],
                     ),
+                    SizedBox(height: 15.s),
+                    UIText.sinopse(_midiaSelecionada.sinopse, maxLines: 5),
+                    SizedBox(height: 15.s),
+                    UIText.label('Elenco'),
+                    SizedBox(height: 15.s),
+                  ],
                   ),
+                ),
+                SizedBox(
+                  height: 120, // Defina uma altura para o elenco horizontal
+                  child: ListView.separated(
+                  padding: getPaddingHorizontal(context),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 8,
+                  separatorBuilder: (context, index) => SizedBox(width: 10.s),
+                  itemBuilder: (context, index) {
+                    return BoxElenco(
+                    imagem: base64,
+                    nome: 'Andiamo Pirgoretti',
+                    personagem: 'Morbius',
+                    );
+                  },
+                  ),
+                ),
                 ],
+              ),
               ),
             ],
           );

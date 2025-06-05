@@ -17,16 +17,16 @@ class BoxElenco extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 245.s,
+      width: 245.s3,
       child: Stack(
         children: [
           Positioned(
-            left: 30.s,
+            left: 30.s3,
             child: Card(
               shadowColor: Color(0xff5E5E5E),
               elevation: 1,
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 40),
+                padding: EdgeInsets.symmetric(vertical: 7.s3, horizontal: 40.s3),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -48,7 +48,7 @@ class BoxElenco extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: CircleAvatar(
-              radius: 32,
+              radius: 32.s3,
               backgroundImage: MemoryImage(Formatter.imagemBase64(imagem)!),
             ),
           ),

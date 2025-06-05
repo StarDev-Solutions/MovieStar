@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_icone.dart';
 import 'package:moviestar/src/midia/domain/entities/midia.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
@@ -56,11 +58,16 @@ class _BoxBuscaMidiaState extends State<BoxBuscaMidia> {
                 }
               },
               child: SearchAnchor.bar(
+                barTextStyle: WidgetStatePropertyAll(labelStyle),
+                barLeading: BoxIcone(icone: Icons.search),
+                barPadding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 16.s3, vertical: 10.s3)),
                 barBackgroundColor: WidgetStatePropertyAll(colorBackground),
-                barShape: WidgetStatePropertyAll(
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                ),
-                viewShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                barShape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.s3))),
+                viewHeaderTextStyle: labelStyle,
+                viewLeading: GestureDetector(child: BoxIcone(icone: Icons.arrow_back), onTap: () => Get.back()),
+                ///TODO: Checar necessidade de aumentar o vertical para os dispositivos menores não apresentarem aumento de tamanho ao digitar.
+                viewBarPadding: EdgeInsets.symmetric(horizontal: 16.s3, vertical: 10.s3),
+                viewShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.s3)),
                 viewBackgroundColor: colorBackground,
                 viewConstraints: BoxConstraints(maxWidth: constraints.maxWidth),
                 isFullScreen: false,
@@ -69,7 +76,7 @@ class _BoxBuscaMidiaState extends State<BoxBuscaMidia> {
                   return widget.midia.where((movie) => movie.titulo.toLowerCase().contains(input.toLowerCase())).map((movie) {
                     return ListTile(
                         onTap: () => widget.sugestaoSelecionada(movie),
-                        title: Text(movie.titulo),
+                        title: UIText.label(movie.titulo),
                       );
                     });
                 },

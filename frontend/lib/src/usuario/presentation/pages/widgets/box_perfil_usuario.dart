@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_icone.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 import 'package:moviestar/src/core/utils/formatter.dart';
 import 'package:rive/rive.dart';
@@ -89,12 +90,12 @@ class _BoxPerfilUsuarioState extends State<BoxPerfilUsuario> {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  padding: EdgeInsets.all(5),
+                  padding: EdgeInsets.all(5.s),
                   decoration: BoxDecoration(
                     color: colorBottomNavBackground,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.edit, color: colorPrimary, size: 18),
+                  child: BoxIcone(icone: Icons.edit, cor: colorPrimary, tamanho: 18.s6),
                 ),
               ),
             ],

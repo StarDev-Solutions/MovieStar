@@ -30,7 +30,8 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
 
   @override
   void initState() {
-    _carouselController = CarouselController(initialItem: 1);
+    ///TODO: Ajustar lógica para começar no segundo item do carrossel.
+    _carouselController = CarouselController();
     _midiaController = Get.find<MidiaController>();
     focusNode = FocusNode();
     _animationController = AnimationController(
@@ -75,7 +76,6 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
         useVerticalPadding: true,
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               UIPadding(
                 useHorizontalPadding: true,
@@ -103,7 +103,8 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
               SizedBox(height: 15.s),
               Obx(() {
                   return Row(
-                    spacing: 10,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 10.s3,
                     children: [
                       SlideTransition(
                         position: _offsetLtoR,
@@ -140,8 +141,7 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                             onTap: (index) => _selecionarMidia(_midiaController.midiasPopulares[index]),
                             flexWeights: [2, 3, 3, 2],
                             itemSnapping: true,
-                            children:
-                                _midiaController.state == NotifierState.loading
+                            children: _midiaController.state == NotifierState.loading
                                     ? List.generate(
                                       4,
                                       (index) => Skeleton.leaf(

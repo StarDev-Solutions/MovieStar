@@ -8,18 +8,20 @@ class BoxCategoriaSerie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final num escala = isSmallerDevices ? 0.8 : 0.9;
+
     return SizedBox(
-      height: 150,
-      width: 190,
+      height: 150.s5 * escala,
+      width: 190.s5 * escala,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           CustomPaint(
-            size: Size(160, 140),
+            size: Size(160.s5 * escala, 140.s5 * escala),
             painter: BackgroundPainter(),
           ),
           Positioned(
-            left: 10,
+            left: 10.s5 * escala,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -29,11 +31,12 @@ class BoxCategoriaSerie extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: -35,
-            right: 2,
+            top: -35.s5 * escala,
+            right: 2.s5 * escala,
             child: Image.asset(
               'assets/images/midoria.png',
-              width: 122,
+              width: 122.s5 * escala,
+              fit: BoxFit.fitHeight,
             ),
           ),
         ],

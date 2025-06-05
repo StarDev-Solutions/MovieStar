@@ -9,14 +9,14 @@ class BoxCartazMidia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 7.s,
+      spacing: 7.s3,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(14),
           child: FadeInImage(
             placeholder: AssetImage('assets/images/placeholder_midia.png'),
             image: AssetImage('assets/images/placeholder_midia.png'),
-            width: 100,
+            width: 100.s3,
             fit: BoxFit.contain,
           ),
         ),

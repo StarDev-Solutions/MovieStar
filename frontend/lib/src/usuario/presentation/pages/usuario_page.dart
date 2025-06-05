@@ -28,17 +28,12 @@ class _UsuarioPageState extends State<UsuarioPage> {
                     BoxPerfilUsuario(base64Avatar: '', usuario: 'John Connor'),
                     SizedBox(height: 30.s),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      spacing: 15.s5,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _buildDataContainer(
-                          label: 'Assistidos',
-                          statistic: '444h',
-                        ),
+                        _buildDataContainer(label: 'Assistidos',statistic: '444h'),
                         _buildDataContainer(label: 'Filmes', statistic: '200'),
-                        _buildDataContainer(
-                          label: 'Episódios',
-                          statistic: '112',
-                        ),
+                        _buildDataContainer(label: 'Episódios', statistic: '112'),
                       ],
                     ),
                     SizedBox(height: 30.s),
@@ -48,10 +43,11 @@ class _UsuarioPageState extends State<UsuarioPage> {
               ),
               SizedBox(height: 10.s),
               SizedBox(
-                height: 150.s,
+                height: 150.s3,
                 child: Visibility(
                   visible: false,
                   replacement: Center(
+                    ///TODO: Terminar a widget para quando não houver lista.
                     child: Image.asset('assets/images/empty.png'),
                   ),
                   child: CarouselView(
@@ -77,10 +73,10 @@ class _UsuarioPageState extends State<UsuarioPage> {
               ),
               SizedBox(height: 10.s),
               SizedBox(
-                height: 147.s,
+                height: 160.s3,
                 child: ListView.separated(
                   padding: getPaddingHorizontal(context),
-                  separatorBuilder: (context, index) => SizedBox(width: 10),
+                  separatorBuilder: (context, index) => SizedBox(width: 10.s3),
                   scrollDirection: Axis.horizontal,
                   itemCount: 100,
                   itemBuilder: (_, index) {
@@ -105,7 +101,7 @@ class _UsuarioPageState extends State<UsuarioPage> {
               ),
               SizedBox(height: 10.s),
               SizedBox(
-                height: 147.s,
+                height: 160.s3,
                 child: ListView.separated(
                   padding: getPaddingHorizontal(context),
                   separatorBuilder: (context, index) => SizedBox(width: 10),
@@ -136,15 +132,15 @@ class _UsuarioPageState extends State<UsuarioPage> {
 
   Container _buildDataContainer({required String statistic, required String label}) {
     return Container(
-      width: 100,
-      height: 70,
+      width: 80.s3,
+      height: 56.s3,
       decoration: BoxDecoration(
         color: colorSecondary,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text(statistic), Text(label)],
+        children: [UIText.label(statistic), UIText.label(label)],
       ),
     );
   }

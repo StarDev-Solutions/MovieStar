@@ -48,14 +48,14 @@ class _BasePageState extends State<BasePage> with SingleTickerProviderStateMixin
             ],
           ),
           Positioned(
-            bottom: 20,
+            bottom: 15,
             child: SlideTransition(
               position: _offsetAnimation,
               child: Container(
-                height: 65.s2,
+                height: 55.s3,
                 width: MediaQuery.sizeOf(context).width / 1.2,
                 padding: EdgeInsets.all(12),
-                margin: EdgeInsets.symmetric(horizontal: 30),
+                margin: EdgeInsets.symmetric(horizontal: 30.s3),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.s),
                   gradient: LinearGradient(
@@ -84,8 +84,8 @@ class _BasePageState extends State<BasePage> with SingleTickerProviderStateMixin
                           _pageController.jumpToPage(index);
                         },
                         child: SizedBox(
-                          height: 36,
-                          width: 36,
+                          height: 25.s3,
+                          width: 25.s3,
                           child: Opacity(
                             opacity: _selectedNavIndex == index ? 1 : 0.5,
                             child: r.RiveAnimation.asset(
