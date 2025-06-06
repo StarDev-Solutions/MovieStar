@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_icone.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 
 ///Classe responsavel por criar um TextField customizado.
 class BoxCampoTexto extends StatefulWidget {
@@ -108,28 +108,28 @@ class _BoxCampoTextoState extends State<BoxCampoTexto> {
           counterText: '',
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
           prefixIcon: widget.prefixIcon != null
-              ? Icon(widget.prefixIcon)
+              ? BoxIcone(icone: widget.prefixIcon)
               : null,
           prefixIconConstraints: BoxConstraints.tight(Size(60.s2, 25.s2)),
           suffixIcon: widget.isPassword
               ? GestureDetector(
-                  child: Icon(
-                    _obscureText ? Icons.visibility : Icons.visibility_off,
+                  child: BoxIcone(
+                    icone: _obscureText ? Icons.visibility : Icons.visibility_off,
                   ),
                   onTap: () => setState(() => _obscureText = !_obscureText),
                 )
               : widget.enableButtonCleanValue ? 
               GestureDetector(
-                  child: const Icon(
-                    Icons.clear,
+                  child: const BoxIcone(
+                    icone: Icons.clear,
                   ),
                   onTap: () => widget.controller!.clear(),
                 ) :
               GestureDetector(
                   onTap: widget.onPressedSuffixIcon,
-                  child: Icon(
-                    widget.suffixIcon,
-                    color: colorLabelOnPrimary.withOpacity(0.2),
+                  child: BoxIcone(
+                    icone: widget.suffixIcon,
+                    cor: colorLabelOnPrimary.withValues(alpha: 0.2),
                   ),
                 ),
           suffixIconConstraints: widget.isPassword || widget.enableButtonCleanValue || widget.suffixIcon != null ? BoxConstraints.tight(Size(60.s2, 25.s2)) : BoxConstraints.tight(const Size(20, 0)),

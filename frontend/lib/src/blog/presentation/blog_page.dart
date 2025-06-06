@@ -3,7 +3,6 @@ import 'package:moviestar/src/blog/domain/entities/blog_post.dart';
 import 'package:moviestar/src/blog/presentation/controllers/blog_controller.dart';
 import 'package:moviestar/src/blog/presentation/widgets/box_card_artigo.dart';
 import 'package:moviestar/src/blog/presentation/widgets/box_busca_artigo.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:moviestar/src/base/domain/entities/enums/notifier_state.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
@@ -57,8 +56,9 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(top: 45.s, left: 20.s, right: 20.s),
+      body: UIPadding(
+        useVerticalPadding: true,
+        useHorizontalPadding: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -83,7 +83,6 @@ class _BlogPageState extends State<BlogPage> with SingleTickerProviderStateMixin
                       separatorBuilder: (_, _) => SizedBox(height: 20),
                       itemCount: _blogController.artigos.length,
                       itemBuilder: (_, index) {
-
                       return TweenAnimationBuilder(
                         tween: Tween(begin: Offset(1, 0), end: Offset.zero),
                         duration: Duration(milliseconds: 300),

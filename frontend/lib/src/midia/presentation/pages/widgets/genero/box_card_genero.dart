@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:moviestar/src/midia/domain/entities/movie.dart';
+import 'package:moviestar/src/midia/domain/entities/midia.dart';
 
 class BoxCardGenero extends StatelessWidget {
-  final Filme movieModel;
+  final Midia movieModel;
   
   const BoxCardGenero({super.key, required this.movieModel});
 
@@ -16,7 +16,7 @@ class BoxCardGenero extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
-              image: AssetImage(movieModel.posterPath), //TODO - TROCAR A IMAGEM
+              image: AssetImage(movieModel.cartaz), //TODO - TROCAR A IMAGEM
               fit: BoxFit.cover,
             ),
           ),
@@ -25,7 +25,7 @@ class BoxCardGenero extends StatelessWidget {
           bottom: 0,
           left: 20,
           child: Text(
-            movieModel.title, //TODO - TROCAR TÍTULO
+            movieModel.titulo, //TODO - TROCAR TÍTULO
             style: const TextStyle(
               color: Colors.white,
               fontSize: 15,

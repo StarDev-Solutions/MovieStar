@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/route.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:moviestar/src/midia/domain/entities/movie.dart';
+import 'package:moviestar/src/midia/domain/entities/midia.dart';
 import 'package:moviestar/src/midia/presentation/controllers/midia_controller.dart';
 import 'package:moviestar/src/midia/presentation/pages/widgets/box_categoria_serie.dart';
 import 'package:moviestar/src/midia/presentation/pages/widgets/box_catalogo_midia.dart';
@@ -27,12 +26,13 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
   late Animation<Offset> _offsetTtoB;
   late Animation<Offset> _offsetLtoR;
   late Animation<Offset> _offsetRtoL;
-
-  final MidiaController _mediaController = Get.find<MidiaController>();
+  late MidiaController _midiaController;
 
   @override
   void initState() {
-    _carouselController = CarouselController(initialItem: 1);
+    ///TODO: Ajustar lógica para começar no segundo item do carrossel.
+    _carouselController = CarouselController();
+    _midiaController = Get.find<MidiaController>();
     focusNode = FocusNode();
     _animationController = AnimationController(
       duration: Duration(milliseconds: 700),
@@ -55,9 +55,11 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
     _animationController.forward();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // await _mediaController.getTrendingMovies();
+      await Future.wait([
+        _midiaController.buscarFilmes(numeroPagina: 1),
+        _midiaController.buscarSeries(numeroPagina: 1),
+      ]);
     });
-
     super.initState();
   }
 
@@ -70,14 +72,13 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(top: 45.s),
+      body: UIPadding(
+        useVerticalPadding: true,
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.all(20),
+              UIPadding(
+                useHorizontalPadding: true,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -87,11 +88,11 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                       position: _offsetTtoB,
                       child: BoxBuscaMidia(
                         searchFocusNode: focusNode,
-                        midia: Get.find<MidiaController>().filmesPopulares,
-                        sugestaoSelecionada: selectMovie,
+                        midia: _midiaController.filmesPopulares,
+                        sugestaoSelecionada: _selecionarMidia,
                       ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 30.s),
                     FadeTransition(
                       opacity: _opacityAnimation,
                       child: Text('Categorias', style: labelStyle),
@@ -99,46 +100,48 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Row(
-                spacing: 10,
-                children: [
-                  SlideTransition(
-                    position: _offsetLtoR,
-                    child: BoxCategoriaFilme(),
-                  ),
-                  SlideTransition(
-                    position: _offsetRtoL,
-                    child: BoxCategoriaSerie(),
-                  ),
-                ],
+              SizedBox(height: 15.s),
+              Obx(() {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 10.s3,
+                    children: [
+                      SlideTransition(
+                        position: _offsetLtoR,
+                        child: BoxCategoriaFilme(filmes: _midiaController.filmesPopulares.length),
+                      ),
+                      SlideTransition(
+                        position: _offsetRtoL,
+                        child: BoxCategoriaSerie(series: _midiaController.seriesPopulares.length),
+                      ),
+                    ],
+                  );
+                }
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 15.s),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.s),
+                  UIPadding(
+                    useHorizontalPadding: true,
                     child: FadeTransition(
                       opacity: _opacityAnimation,
                       child: Text('Populares', style: labelStyle),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  GetBuilder<MidiaController>(
-                    builder: (controller) {
+                  SizedBox(height: 15.s),
+                  Obx(() {
                       return Skeletonizer(
-                        enabled: controller.state == NotifierState.loading,
+                        enabled: _midiaController.state == NotifierState.loading,
                         child: SizedBox(
                           height: 220.s,
                           child: CarouselView.weighted(
                             controller: _carouselController,
                             enableSplash: false,
-                            onTap: (_) => Get.toNamed(Routes.detalheRoute),
+                            onTap: (index) => _selecionarMidia(_midiaController.midiasPopulares[index]),
                             flexWeights: [2, 3, 3, 2],
                             itemSnapping: true,
-                            children:
-                                controller.state == NotifierState.loading
+                            children: _midiaController.state == NotifierState.loading
                                     ? List.generate(
                                       4,
                                       (index) => Skeleton.leaf(
@@ -151,14 +154,14 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
                                         ),
                                       ),
                                     )
-                                    : controller.filmesPopulares.map((e) {
+                                    : _midiaController.midiasPopulares.map((midia) {
                                       return TweenAnimationBuilder<Offset>(
                                         duration: Duration(milliseconds: 600),
                                         tween: Tween(begin: Offset(1, 0), end: Offset.zero),
                                         builder: (context, value, child) {
                                           return Transform.translate(
                                             offset: value,
-                                            child: BoxCatalogoMidia(movie: e),
+                                            child: BoxCatalogoMidia(midia: midia),
                                           );
                                         }
                                       );
@@ -177,5 +180,8 @@ class _PrincipalPageState extends State<PrincipalPage> with SingleTickerProvider
     );
   }
 
-  void selectMovie(Filme movie) => _mediaController.selecionarMidia(movie);
+  void _selecionarMidia(Midia midia) {
+    _midiaController.selecionarMidia(midia);
+    Get.toNamed(Routes.detalheRoute);
+  }
 }

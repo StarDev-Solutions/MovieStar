@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:moviestar/src/autenticacao/presentation/controllers/autenticacao_controller.dart';
 import 'package:moviestar/src/autenticacao/presentation/pages/widgets/box_campo_texto.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/box_botao_primario.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_botao_primario.dart';
 
 class CadastroPage extends StatefulWidget {
   const CadastroPage({super.key});
@@ -77,7 +76,7 @@ class _CadastroPageState extends State<CadastroPage> {
                         text: 'Cadastrar',
                         onPressed: () => _autenticacaoController.cadastrar(),
                       ),
-                      TextButton(onPressed: () => Get.back(), child: UIText.releaseDate('Já tem uma conta? Entre'))
+                      TextButton(onPressed: () => Get.back(), child: UIText.labelUsuarios('Já tem uma conta? Entre'))
                     ],
                   )
                 ),

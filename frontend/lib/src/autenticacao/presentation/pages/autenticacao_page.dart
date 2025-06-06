@@ -4,8 +4,7 @@ import 'package:moviestar/src/autenticacao/presentation/controllers/autenticacao
 import 'package:moviestar/src/autenticacao/presentation/pages/widgets/box_campo_texto.dart';
 import 'package:moviestar/src/core/route.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
-import 'package:moviestar/src/midia/presentation/pages/widgets/box_botao_primario.dart';
+import 'package:moviestar/src/base/presentation/pages/widgets/box_botao_primario.dart';
 
 class AutenticacaoPage extends StatefulWidget {
   const AutenticacaoPage({super.key});
@@ -24,53 +23,55 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            spacing: 60.s3,
-            children: [
-              _buildLogo(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    spacing: 30.s3,
-                    children: [
-                      BoxCampoTexto(
-                        controller: _emailController,
-                        label: 'E-mail',
-                        hintText: 'Insira seu email...',
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Por favor, insira seu email';
-                          }
-                          return null;
-                        },
-                      ),
-                      BoxCampoTexto(
-                        controller: _senhaController,
-                        isPassword: true,
-                        label: 'Senha',
-                        hintText: 'Insira sua senha...',
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Por favor, insira sua senha';
-                          }
-                          return null;
-                        },
-                      ),
-                      BoxBotaoPrimario(
-                        text: 'Entrar',
-                        onPressed: () => _autenticacaoController.entrar(),
-                      ),
-                      TextButton(onPressed: () => Get.toNamed(Routes.cadastroRoute), child: UIText.releaseDate('Não tem uma conta? Cadastre-se'))
-                    ],
-                  )
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              spacing: 60.s3,
+              children: [
+                _buildLogo(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      spacing: 30.s3,
+                      children: [
+                        BoxCampoTexto(
+                          controller: _emailController,
+                          label: 'E-mail',
+                          hintText: 'Insira seu email...',
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Por favor, insira seu email';
+                            }
+                            return null;
+                          },
+                        ),
+                        BoxCampoTexto(
+                          controller: _senhaController,
+                          isPassword: true,
+                          label: 'Senha',
+                          hintText: 'Insira sua senha...',
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Por favor, insira sua senha';
+                            }
+                            return null;
+                          },
+                        ),
+                        BoxBotaoPrimario(
+                          text: 'Entrar',
+                          onPressed: () => _autenticacaoController.entrar(),
+                        ),
+                        TextButton(onPressed: () => Get.toNamed(Routes.cadastroRoute), child: UIText.labelUsuarios('Não tem uma conta? Cadastre-se'))
+                      ],
+                    )
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -82,8 +83,8 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
     return Hero(
       tag: 'logo',
       child: Container(
-        width: 200.s2,
-        height: 200.s2,
+        width: 200.s3,
+        height: 200.s3,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Theme.of(context).cardColor.withValues(alpha: 0.9),

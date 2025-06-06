@@ -5,6 +5,8 @@ import 'package:moviestar/src/base/presentation/pages/widgets/box_checagem_auten
 import 'package:moviestar/src/midia/presentation/pages/detalhe_page.dart';
 import 'package:moviestar/src/midia/presentation/pages/principal_page.dart';
 import 'package:moviestar/src/base/presentation/pages/base_page.dart';
+import 'package:moviestar/src/usuario/presentation/pages/historico_avaliacao_page.dart';
+import 'package:moviestar/src/usuario/presentation/pages/usuario_page.dart';
 
 abstract class Pages {
   static final pages = <GetPage>[
@@ -32,6 +34,14 @@ abstract class Pages {
       name: Routes.detalheRoute,
       page: () => const DetalhePage(),
     ),
+    GetPage(
+      name: Routes.historicoAvaliacaoRoute,
+      page: () => const HistoricoAvaliacaoPage(),
+    ),
+    GetPage(
+      name: Routes.usuarioRoute,
+      page: () => const UsuarioPage(),
+    ),
   ];
 }
 
@@ -42,4 +52,6 @@ abstract class Routes {
   static const String baseRoute = '/base';
   static const String principalRoute = '/principal';
   static const String detalheRoute = '/detalhe';
+  static const String historicoAvaliacaoRoute = '/historicoAvaliacao';
+  static const String usuarioRoute = '/usuario';
 }

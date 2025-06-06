@@ -2,37 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
 
 class BoxCategoriaFilme extends StatelessWidget {
-  const BoxCategoriaFilme({super.key});
+  final int filmes;
+
+  const BoxCategoriaFilme({super.key, required this.filmes});
 
   @override
   Widget build(BuildContext context) {
+    final num escala = isSmallerDevices ? 0.8 : 0.9;
+
     return SizedBox(
-      height: 150,
-      width: 190,
+      height: 150.s5 * escala,
+      width: 190.s5 * escala,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Positioned(
-            left: 27,
+            left: 27.s5 * escala,
             child: CustomPaint(
-              size: Size(160, 140),
+              size: Size(160.s5 * escala, 140.s5 * escala),
               painter: BackgroundPainter(),
             ),
           ),
           Positioned(
-            top: -15,
+            top: -15.s5 * escala,
             child: Image.asset(
               'assets/images/spider_man.png',
-              width: 155,
+              width: 155.s5 * escala,
+              fit: BoxFit.fitHeight,
             ),
           ),
           Positioned(
-            right: 10,
+            right: 10.s5 * escala,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                UIText.categoryLabel('Movies'),
-                UIText.quantityTitlesLabel('532 Titles'),
+                UIText.categoryLabel('Filmes'),
+                UIText.quantityTitlesLabel('$filmes'),
               ],
             ),
           ),

@@ -5,7 +5,8 @@ import 'package:moviestar/src/midia/presentation/pages/principal_page.dart';
 import 'package:moviestar/src/base/presentation/pages/widgets/box_barra_selecao_animada.dart';
 import 'package:moviestar/src/blog/presentation/blog_page.dart';
 import 'package:moviestar/src/core/theme/ui_helpers/ui_helper.dart';
-import 'package:moviestar/src/core/theme/ui_helpers/ui_responsivity.dart';
+import 'package:moviestar/src/usuario/presentation/pages/historico_avaliacao_page.dart';
+import 'package:moviestar/src/usuario/presentation/pages/usuario_page.dart';
 import 'package:rive/rive.dart' as r;
 
 class BasePage extends StatefulWidget {
@@ -42,27 +43,27 @@ class _BasePageState extends State<BasePage> with SingleTickerProviderStateMixin
             children: [
               PrincipalPage(),
               BlogPage(),
-              PrincipalPage(),
-              PrincipalPage(),
+              HistoricoAvaliacaoPage(),
+              UsuarioPage(),
             ],
           ),
           Positioned(
-            bottom: 20,
+            bottom: 15,
             child: SlideTransition(
               position: _offsetAnimation,
               child: Container(
-                height: 65.s2,
+                height: 55.s3,
                 width: MediaQuery.sizeOf(context).width / 1.2,
                 padding: EdgeInsets.all(12),
-                margin: EdgeInsets.symmetric(horizontal: 30),
+                margin: EdgeInsets.symmetric(horizontal: 30.s3),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.s),
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      bottomNavBackgroundColor..withValues(alpha: 0.2),
-                      bottomNavBackgroundColor.withValues(alpha: 0.8),
+                      colorBottomNavBackground..withValues(alpha: 0.2),
+                      colorBottomNavBackground.withValues(alpha: 0.8),
                     ],
                   )
                 ),
@@ -83,8 +84,8 @@ class _BasePageState extends State<BasePage> with SingleTickerProviderStateMixin
                           _pageController.jumpToPage(index);
                         },
                         child: SizedBox(
-                          height: 36,
-                          width: 36,
+                          height: 25.s3,
+                          width: 25.s3,
                           child: Opacity(
                             opacity: _selectedNavIndex == index ? 1 : 0.5,
                             child: r.RiveAnimation.asset(

@@ -20,7 +20,7 @@ class BlogRepository extends BaseRepository implements IBlogRepository {
       // final response = await Get.find<Dio>().get(url);
       // final List<BlogPost> result = (response.data as List).map((json) => BlogPostResponse.fromJson(json)).toList(); 
 
-      final List<Artigo> result = (blogPosts['data'] as List).map((json) => BlogPostResponse.fromJson(json)).toList();
+      final List<Artigo> result = (artigos['data'] as List).map((json) => BlogPostResponse.fromJson(json)).toList();
       return Right(result);
     } catch (error) {
       return Left(checkError(error));
